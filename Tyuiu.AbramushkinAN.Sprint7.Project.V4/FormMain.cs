@@ -16,32 +16,66 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            FormAddBook_AAN formadd = new FormAddBook_AAN();
-            List<Library> books = ds.GetLibraries();
-            dataGridViewData_AAN.AutoGenerateColumns = true;
-            dataGridViewData_AAN.DataSource = books;
-            dataGridViewOutData_AAN.AutoGenerateColumns = true;
-            dataGridViewOutData_AAN.DataSource = books;
+
+            
+                FormAddBook_AAN formadd = new FormAddBook_AAN();
+                List<Library> books = ds.GetLibraries();
+                dataGridViewOutData_AAN.AutoGenerateColumns = true;
+                dataGridViewOutData_AAN.DataSource = books;
+                dataGridViewOutData_AAN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridViewOutData_AAN.Columns[0].HeaderText = "Автор";
+                dataGridViewOutData_AAN.Columns[1].HeaderText = "Название произведения";
+                dataGridViewOutData_AAN.Columns[2].HeaderText = "Год написания";
+                dataGridViewOutData_AAN.Columns[3].HeaderText = "Стоимость";
+                dataGridViewOutData_AAN.Columns[4].HeaderText = "Новое ли издание?";
+                dataGridViewOutData_AAN.Columns[5].HeaderText = "Аннотация";
 
 
-            chartYearOfPublication_AAN.Series.Clear();
-            chartPriceOfBook_AAN.Series.Clear();
+                chartYearOfPublication_AAN.Series.Clear();
+                chartPriceOfBook_AAN.Series.Clear();
 
+                foreach (var book in books)
+                {
+                    var seriesYear = chartYearOfPublication_AAN.Series.Add(book.Title);
+                    seriesYear.Points.AddXY(book.Title, book.Year);
+                    var seriesPrice = chartPriceOfBook_AAN.Series.Add(book.Title);
+                    seriesPrice.Points.AddXY(book.Title, book.Price);
+                }
 
-            foreach (var book in books)
-            {
-                var seriesYear = chartYearOfPublication_AAN.Series.Add(book.Title);
-                seriesYear.Points.AddXY(book.Title, book.Year);
-                var seriesPrice = chartPriceOfBook_AAN.Series.Add(book.Title);
-                seriesPrice.Points.AddXY(book.Title, book.Price);
-            }
-
-            chartYearOfPublication_AAN.ChartAreas[0].AxisX.Title = "Название книги";
-            chartYearOfPublication_AAN.ChartAreas[0].AxisY.Title = "Год издания";
-            chartPriceOfBook_AAN.ChartAreas[0].AxisX.Title = "Название книги";
-            chartPriceOfBook_AAN.ChartAreas[0].AxisY.Title = "Цена";
+                chartYearOfPublication_AAN.ChartAreas[0].AxisX.Title = "Название книги";
+                chartYearOfPublication_AAN.ChartAreas[0].AxisY.Title = "Год издания";
+                chartPriceOfBook_AAN.ChartAreas[0].AxisX.Title = "Название книги";
+                chartPriceOfBook_AAN.ChartAreas[0].AxisY.Title = "Цена";
+            
+            
         }
-        
+        private void buttonUpdate_AAN_Click(object sender, EventArgs e)
+        {
+            
+                List<Library> books = ds.GetLibraries();
+                dataGridViewOutData_AAN.AutoGenerateColumns = true;
+                dataGridViewOutData_AAN.DataSource = books;
+                dataGridViewOutData_AAN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+                chartYearOfPublication_AAN.Series.Clear();
+                chartPriceOfBook_AAN.Series.Clear();
+
+
+                foreach (var book in books)
+                {
+                    var seriesYear = chartYearOfPublication_AAN.Series.Add(book.Title);
+                    seriesYear.Points.AddXY(book.Title, book.Year);
+                    var seriesPrice = chartPriceOfBook_AAN.Series.Add(book.Title);
+                    seriesPrice.Points.AddXY(book.Title, book.Price);
+                }
+
+                chartYearOfPublication_AAN.ChartAreas[0].AxisX.Title = "Название книги";
+                chartYearOfPublication_AAN.ChartAreas[0].AxisY.Title = "Год издания";
+                chartPriceOfBook_AAN.ChartAreas[0].AxisX.Title = "Название книги";
+                chartPriceOfBook_AAN.ChartAreas[0].AxisY.Title = "Цена";
+            
+        }
+
 
 
         private DataGridView GetDataGridViewOutput()
@@ -52,24 +86,31 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
 
         private void dataGridViewOutData_AAN_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int columnIndex = e.ColumnIndex;
-            List<Library> books = ds.SortLibrary(columnIndex);
-            dataGridViewOutData_AAN.DataSource = books;
-            chartYearOfPublication_AAN.Series.Clear();
-            chartPriceOfBook_AAN.Series.Clear();
-
-            foreach (var book in books)
+            try
             {
-                var seriesYear = chartYearOfPublication_AAN.Series.Add(book.Title);
-                seriesYear.Points.AddXY(book.Title, book.Year);
-                var seriesPrice = chartPriceOfBook_AAN.Series.Add(book.Title);
-                seriesPrice.Points.AddXY(book.Title, book.Price);
-            }
+                int columnIndex = e.ColumnIndex;
+                List<Library> books = ds.SortLibrary(columnIndex);
+                dataGridViewOutData_AAN.DataSource = books;
+                chartYearOfPublication_AAN.Series.Clear();
+                chartPriceOfBook_AAN.Series.Clear();
 
-            chartYearOfPublication_AAN.ChartAreas[0].AxisX.Title = "Название книги";
-            chartYearOfPublication_AAN.ChartAreas[0].AxisY.Title = "Год издания";
-            chartPriceOfBook_AAN.ChartAreas[0].AxisX.Title = "Название книги";
-            chartPriceOfBook_AAN.ChartAreas[0].AxisY.Title = "Цена";
+                foreach (var book in books)
+                {
+                    var seriesYear = chartYearOfPublication_AAN.Series.Add(book.Title);
+                    seriesYear.Points.AddXY(book.Title, book.Year);
+                    var seriesPrice = chartPriceOfBook_AAN.Series.Add(book.Title);
+                    seriesPrice.Points.AddXY(book.Title, book.Price);
+                }
+
+                chartYearOfPublication_AAN.ChartAreas[0].AxisX.Title = "Название книги";
+                chartYearOfPublication_AAN.ChartAreas[0].AxisY.Title = "Год издания";
+                chartPriceOfBook_AAN.ChartAreas[0].AxisX.Title = "Название книги";
+                chartPriceOfBook_AAN.ChartAreas[0].AxisY.Title = "Цена";
+            }
+            catch
+            {
+                MessageBox.Show("Обновите список книг", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -97,7 +138,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             }
             catch
             {
-                MessageBox.Show("Данной книги нет в списке, проверьте введённое название", "Неверное название", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Обновите список книг", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -150,31 +191,9 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
 
         }
 
-        private void buttonUpdate_AAN_Click(object sender, EventArgs e)
+        private void chartPriceOfBook_AAN_Click(object sender, EventArgs e)
         {
-            List<Library> books = ds.GetLibraries();
-            dataGridViewData_AAN.AutoGenerateColumns = true;
-            dataGridViewData_AAN.DataSource = books;
-            dataGridViewOutData_AAN.AutoGenerateColumns = true;
-            dataGridViewOutData_AAN.DataSource = books;
 
-
-            chartYearOfPublication_AAN.Series.Clear();
-            chartPriceOfBook_AAN.Series.Clear();
-
-
-            foreach (var book in books)
-            {
-                var seriesYear = chartYearOfPublication_AAN.Series.Add(book.Title);
-                seriesYear.Points.AddXY(book.Title, book.Year);
-                var seriesPrice = chartPriceOfBook_AAN.Series.Add(book.Title);
-                seriesPrice.Points.AddXY(book.Title, book.Price);
-            }
-
-            chartYearOfPublication_AAN.ChartAreas[0].AxisX.Title = "Название книги";
-            chartYearOfPublication_AAN.ChartAreas[0].AxisY.Title = "Год издания";
-            chartPriceOfBook_AAN.ChartAreas[0].AxisX.Title = "Название книги";
-            chartPriceOfBook_AAN.ChartAreas[0].AxisY.Title = "Цена";
         }
     }
 }

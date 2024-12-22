@@ -5,11 +5,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.JavaScript;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib;
 
 
@@ -41,9 +43,13 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                 int YearOfPubl = Convert.ToInt32(textBoxYearOfPubl_AAN.Text);
                 double Price = Convert.ToDouble(textBoxPrice_AAN.Text);
                 bool IsNewEdition;
-                if (textBoxIsNewEdition_AAN.Text == "Да")
+                if (textBoxIsNewEdition_AAN.Text == "Да" || textBoxIsNewEdition_AAN.Text == "да")
                 {
                     IsNewEdition = true;
+                }
+                else if (textBoxIsNewEdition_AAN.Text == "Нет" || textBoxIsNewEdition_AAN.Text == "нет")
+                {
+                    IsNewEdition = false;
                 }
                 else
                 {
@@ -62,8 +68,21 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             
                 string JsonStr = JsonConvert.SerializeObject(book);
                 string path = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Test.json";
-                //File.WriteAllText(path, $"{JsonStr}\n");
+                string[] JSON = File.ReadAllLines(path);
+                File.WriteAllLines(path, JSON);
+                for (int i = 0; i < JSON.Length; i++)
+                {
+                    if(JSON[i] == "]")
+                    {
+                        JSON[i] = "";
+                    }    
+                }
+                File.Delete(path);
                 StreamWriter sw = new StreamWriter(path, true, Encoding.Default);
+                for (int i = 0; i < JSON.Length; i++)
+                {
+                    sw.WriteLine(JSON[i]);
+                }
                 sw.Write($"\t{JsonStr},\n]");
                 sw.Close();
                 MessageBox.Show("Книга добавлена успешно", "Добавление новой книги", MessageBoxButtons.OK, MessageBoxIcon.Information);

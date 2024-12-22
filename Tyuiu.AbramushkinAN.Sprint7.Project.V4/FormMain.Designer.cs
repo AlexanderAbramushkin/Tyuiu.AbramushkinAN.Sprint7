@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain_AAN));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panelInstruments_AAN = new Panel();
             buttonUpdate_AAN = new Button();
             buttonAdd_AAN = new Button();
@@ -43,17 +43,22 @@
             buttonSaveFile_AAN = new Button();
             buttonUserManual_AAN = new Button();
             buttonAboutProgram_AAN = new Button();
-            tableLayoutPanelData_AAN = new TableLayoutPanel();
-            dataGridViewData_AAN = new DataGridView();
+            chartPriceOfBook_AAN = new System.Windows.Forms.DataVisualization.Charting.Chart();
             dataGridViewOutData_AAN = new DataGridView();
             chartYearOfPublication_AAN = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            chartPriceOfBook_AAN = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            panelDataGrid_AAN = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            splitContainercharts_AAN = new SplitContainer();
             panelInstruments_AAN.SuspendLayout();
-            tableLayoutPanelData_AAN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewData_AAN).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chartPriceOfBook_AAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOutData_AAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartYearOfPublication_AAN).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chartPriceOfBook_AAN).BeginInit();
+            panelDataGrid_AAN.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainercharts_AAN).BeginInit();
+            splitContainercharts_AAN.Panel1.SuspendLayout();
+            splitContainercharts_AAN.Panel2.SuspendLayout();
+            splitContainercharts_AAN.SuspendLayout();
             SuspendLayout();
             // 
             // panelInstruments_AAN
@@ -73,6 +78,7 @@
             // 
             // buttonUpdate_AAN
             // 
+            buttonUpdate_AAN.Anchor = AnchorStyles.Right;
             buttonUpdate_AAN.Image = (Image)resources.GetObject("buttonUpdate_AAN.Image");
             buttonUpdate_AAN.Location = new Point(724, 12);
             buttonUpdate_AAN.Name = "buttonUpdate_AAN";
@@ -94,16 +100,16 @@
             // 
             // textBoxSearch_AAN
             // 
-            textBoxSearch_AAN.Location = new Point(12, 18);
+            textBoxSearch_AAN.Location = new Point(12, 23);
             textBoxSearch_AAN.Name = "textBoxSearch_AAN";
             textBoxSearch_AAN.PlaceholderText = "Введите название книги";
-            textBoxSearch_AAN.Size = new Size(287, 23);
+            textBoxSearch_AAN.Size = new Size(192, 23);
             textBoxSearch_AAN.TabIndex = 4;
             // 
             // buttonSearch_AAN
             // 
             buttonSearch_AAN.Anchor = AnchorStyles.Left;
-            buttonSearch_AAN.Location = new Point(305, 18);
+            buttonSearch_AAN.Location = new Point(210, 18);
             buttonSearch_AAN.Name = "buttonSearch_AAN";
             buttonSearch_AAN.Size = new Size(115, 33);
             buttonSearch_AAN.TabIndex = 2;
@@ -144,86 +150,99 @@
             buttonAboutProgram_AAN.UseVisualStyleBackColor = true;
             buttonAboutProgram_AAN.Click += buttonAboutProgram_AAN_Click;
             // 
-            // tableLayoutPanelData_AAN
+            // chartPriceOfBook_AAN
             // 
-            tableLayoutPanelData_AAN.ColumnCount = 2;
-            tableLayoutPanelData_AAN.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanelData_AAN.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanelData_AAN.Controls.Add(dataGridViewData_AAN, 0, 0);
-            tableLayoutPanelData_AAN.Controls.Add(dataGridViewOutData_AAN, 1, 0);
-            tableLayoutPanelData_AAN.Controls.Add(chartYearOfPublication_AAN, 0, 1);
-            tableLayoutPanelData_AAN.Controls.Add(chartPriceOfBook_AAN, 1, 1);
-            tableLayoutPanelData_AAN.Dock = DockStyle.Fill;
-            tableLayoutPanelData_AAN.Location = new Point(0, 68);
-            tableLayoutPanelData_AAN.Name = "tableLayoutPanelData_AAN";
-            tableLayoutPanelData_AAN.RowCount = 2;
-            tableLayoutPanelData_AAN.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanelData_AAN.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanelData_AAN.Size = new Size(1264, 664);
-            tableLayoutPanelData_AAN.TabIndex = 1;
-            // 
-            // dataGridViewData_AAN
-            // 
-            dataGridViewData_AAN.AllowUserToDeleteRows = false;
-            dataGridViewData_AAN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewData_AAN.Dock = DockStyle.Fill;
-            dataGridViewData_AAN.Location = new Point(3, 3);
-            dataGridViewData_AAN.Name = "dataGridViewData_AAN";
-            dataGridViewData_AAN.RowHeadersVisible = false;
-            dataGridViewData_AAN.Size = new Size(626, 326);
-            dataGridViewData_AAN.TabIndex = 0;
+            chartArea3.Name = "ChartArea1";
+            chartPriceOfBook_AAN.ChartAreas.Add(chartArea3);
+            chartPriceOfBook_AAN.Dock = DockStyle.Fill;
+            legend3.Name = "Legend1";
+            chartPriceOfBook_AAN.Legends.Add(legend3);
+            chartPriceOfBook_AAN.Location = new Point(0, 0);
+            chartPriceOfBook_AAN.Name = "chartPriceOfBook_AAN";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chartPriceOfBook_AAN.Series.Add(series3);
+            chartPriceOfBook_AAN.Size = new Size(605, 326);
+            chartPriceOfBook_AAN.TabIndex = 3;
+            chartPriceOfBook_AAN.Text = "Стоимость книги";
+            chartPriceOfBook_AAN.Click += chartPriceOfBook_AAN_Click;
             // 
             // dataGridViewOutData_AAN
             // 
             dataGridViewOutData_AAN.AllowUserToDeleteRows = false;
             dataGridViewOutData_AAN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewOutData_AAN.Dock = DockStyle.Fill;
-            dataGridViewOutData_AAN.Location = new Point(635, 3);
+            dataGridViewOutData_AAN.Location = new Point(3, 3);
             dataGridViewOutData_AAN.Name = "dataGridViewOutData_AAN";
             dataGridViewOutData_AAN.RowHeadersVisible = false;
-            dataGridViewOutData_AAN.Size = new Size(626, 326);
+            dataGridViewOutData_AAN.Size = new Size(1258, 326);
             dataGridViewOutData_AAN.TabIndex = 1;
             // 
             // chartYearOfPublication_AAN
             // 
-            chartArea1.Name = "ChartArea1";
-            chartYearOfPublication_AAN.ChartAreas.Add(chartArea1);
+            chartArea4.Name = "ChartArea1";
+            chartYearOfPublication_AAN.ChartAreas.Add(chartArea4);
             chartYearOfPublication_AAN.Dock = DockStyle.Fill;
-            legend1.Name = "Legend1";
-            chartYearOfPublication_AAN.Legends.Add(legend1);
-            chartYearOfPublication_AAN.Location = new Point(3, 335);
+            legend4.Name = "Legend1";
+            chartYearOfPublication_AAN.Legends.Add(legend4);
+            chartYearOfPublication_AAN.Location = new Point(0, 0);
             chartYearOfPublication_AAN.Name = "chartYearOfPublication_AAN";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chartYearOfPublication_AAN.Series.Add(series1);
-            chartYearOfPublication_AAN.Size = new Size(626, 326);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chartYearOfPublication_AAN.Series.Add(series4);
+            chartYearOfPublication_AAN.Size = new Size(649, 326);
             chartYearOfPublication_AAN.TabIndex = 2;
             chartYearOfPublication_AAN.Text = "Год издания";
             // 
-            // chartPriceOfBook_AAN
+            // panelDataGrid_AAN
             // 
-            chartArea2.Name = "ChartArea1";
-            chartPriceOfBook_AAN.ChartAreas.Add(chartArea2);
-            chartPriceOfBook_AAN.Dock = DockStyle.Fill;
-            legend2.Name = "Legend1";
-            chartPriceOfBook_AAN.Legends.Add(legend2);
-            chartPriceOfBook_AAN.Location = new Point(635, 335);
-            chartPriceOfBook_AAN.Name = "chartPriceOfBook_AAN";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartPriceOfBook_AAN.Series.Add(series2);
-            chartPriceOfBook_AAN.Size = new Size(626, 326);
-            chartPriceOfBook_AAN.TabIndex = 3;
-            chartPriceOfBook_AAN.Text = "Стоимость книги";
+            panelDataGrid_AAN.Controls.Add(tableLayoutPanel1);
+            panelDataGrid_AAN.Dock = DockStyle.Fill;
+            panelDataGrid_AAN.Location = new Point(0, 68);
+            panelDataGrid_AAN.Name = "panelDataGrid_AAN";
+            panelDataGrid_AAN.Size = new Size(1264, 664);
+            panelDataGrid_AAN.TabIndex = 2;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(dataGridViewOutData_AAN, 0, 0);
+            tableLayoutPanel1.Controls.Add(splitContainercharts_AAN, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(1264, 664);
+            tableLayoutPanel1.TabIndex = 4;
+            // 
+            // splitContainercharts_AAN
+            // 
+            splitContainercharts_AAN.Dock = DockStyle.Fill;
+            splitContainercharts_AAN.Location = new Point(3, 335);
+            splitContainercharts_AAN.Name = "splitContainercharts_AAN";
+            // 
+            // splitContainercharts_AAN.Panel1
+            // 
+            splitContainercharts_AAN.Panel1.Controls.Add(chartYearOfPublication_AAN);
+            // 
+            // splitContainercharts_AAN.Panel2
+            // 
+            splitContainercharts_AAN.Panel2.Controls.Add(chartPriceOfBook_AAN);
+            splitContainercharts_AAN.Size = new Size(1258, 326);
+            splitContainercharts_AAN.SplitterDistance = 649;
+            splitContainercharts_AAN.TabIndex = 2;
             // 
             // FormMain_AAN
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 732);
-            Controls.Add(tableLayoutPanelData_AAN);
+            Controls.Add(panelDataGrid_AAN);
             Controls.Add(panelInstruments_AAN);
             MinimumSize = new Size(1280, 720);
             Name = "FormMain_AAN";
@@ -231,11 +250,15 @@
             Load += FormMain_Load;
             panelInstruments_AAN.ResumeLayout(false);
             panelInstruments_AAN.PerformLayout();
-            tableLayoutPanelData_AAN.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridViewData_AAN).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chartPriceOfBook_AAN).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOutData_AAN).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartYearOfPublication_AAN).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chartPriceOfBook_AAN).EndInit();
+            panelDataGrid_AAN.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            splitContainercharts_AAN.Panel1.ResumeLayout(false);
+            splitContainercharts_AAN.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainercharts_AAN).EndInit();
+            splitContainercharts_AAN.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -246,13 +269,14 @@
         private Button buttonSearch_AAN;
         private Button buttonUserManual_AAN;
         private Button buttonAboutProgram_AAN;
-        private TableLayoutPanel tableLayoutPanelData_AAN;
-        private DataGridView dataGridViewData_AAN;
         private DataGridView dataGridViewOutData_AAN;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartYearOfPublication_AAN;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartPriceOfBook_AAN;
         private TextBox textBoxSearch_AAN;
         private Button buttonAdd_AAN;
         private Button buttonUpdate_AAN;
+        private Panel panelDataGrid_AAN;
+        private TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartPriceOfBook_AAN;
+        private SplitContainer splitContainercharts_AAN;
     }
 }

@@ -1,5 +1,4 @@
-[ 
-
+[
     {
         "author": "Лев Толстой",
         "title": "Война и мир",
@@ -89,10 +88,18 @@
         "annotation": "Каждая сказочная история увлечёт малыша сюжетом и расскажет ему о смелости и отчаянии."
         
     },
-    
-    
-	{"author":"Проверка","title":"Проверка","year":2024,"price":200.0,"is_new_edition":false,"annotation":"Книга"},
-	{"author":"вфцфвф","title":"Проверкdaа","year":332131,"price":321312.0,"is_new_edition":false,"annotation":"папвпавы"},
-	{"author":"пахпапха","title":"Проверочка","year":213,"price":3213.0,"is_new_edition":true,"annotation":"пкпррпк"},
-	{"author":"dwadaw","title":"dsada","year":3213,"price":13321.0,"is_new_edition":true,"annotation":"вцфвфцвфц"},
+
+	{"author":"321312","title":"321","year":32132,"price":3212312.0,"is_new_edition":true,"annotation":"131"},
+
+	{"author":"32131","title":"321312","year":12312123,"price":21312.0,"is_new_edition":false,"annotation":"321312"},
+
+	{"author":"фвфв","title":"вфвфцв","year":3131212,"price":321312.0,"is_new_edition":true,"annotation":"фвф"},
+
+	{"author":"фцвв","title":"вфвц","year":212112,"price":21321312.0,"is_new_edition":true,"annotation":"вцфвцф"},
+
+	{"author":"Хуйня","title":"Хуйня","year":321312,"price":31231212312.0,"is_new_edition":true,"annotation":"пекпшлкепешпзерщекрекрке"},
+
+	{"author":"3212","title":"3213","year":312331,"price":312312.0,"is_new_edition":true,"annotation":"321312"},
+
+	{"author":"31313321321421","title":"Пушкин 222 7","year":12312321,"price":321312312312.0,"is_new_edition":true,"annotation":"1234364645754563"},
 ]
