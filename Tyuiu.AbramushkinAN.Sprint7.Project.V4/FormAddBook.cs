@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices.JavaScript;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -42,7 +43,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                 string Author = textBoxAuthor_AAN.Text;
                 int YearOfPubl = Convert.ToInt32(textBoxYearOfPubl_AAN.Text);
                 double Price = Convert.ToDouble(textBoxPrice_AAN.Text);
-                bool IsNewEdition;
+                bool IsNewEdition = false;
                 if (textBoxIsNewEdition_AAN.Text == "Да" || textBoxIsNewEdition_AAN.Text == "да")
                 {
                     IsNewEdition = true;
@@ -53,7 +54,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                 }
                 else
                 {
-                    IsNewEdition = false;
+                    throw new Exception();
                 }
                 string Annotation = textBoxAnnotation_AAN.Text;
                 var book = new Book
@@ -67,7 +68,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                 };
             
                 string JsonStr = JsonConvert.SerializeObject(book);
-                string path = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Test.json";
+                string path = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Library.json";
                 string[] JSON = File.ReadAllLines(path);
                 File.WriteAllLines(path, JSON);
                 for (int i = 0; i < JSON.Length; i++)

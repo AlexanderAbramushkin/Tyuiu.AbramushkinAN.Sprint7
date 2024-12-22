@@ -9,7 +9,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib
     {
         public List<Library> GetLibraries()
         {
-            string JsonPath = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Test.json";
+            string JsonPath = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Library.json";
 
             string json = File.ReadAllText(JsonPath);
             
@@ -20,7 +20,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib
 
         public List<Library> SortLibrary(int index)
         {
-            string JsonPath = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Test.json";
+            string JsonPath = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Library.json";
 
             string json = File.ReadAllText(JsonPath);
 
@@ -48,7 +48,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib
         }
         public List<Library> SearchBook(string text)
         {
-            string JsonPath = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Test.json";
+            string JsonPath = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Library.json";
 
             string json = File.ReadAllText(JsonPath);
 

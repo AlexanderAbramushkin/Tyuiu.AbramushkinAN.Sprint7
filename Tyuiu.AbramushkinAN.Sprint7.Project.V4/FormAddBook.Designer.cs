@@ -99,7 +99,7 @@
             textBoxAnnotation_AAN.Multiline = true;
             textBoxAnnotation_AAN.Name = "textBoxAnnotation_AAN";
             textBoxAnnotation_AAN.PlaceholderText = "Аннотация";
-            textBoxAnnotation_AAN.Size = new Size(156, 24);
+            textBoxAnnotation_AAN.Size = new Size(156, 37);
             textBoxAnnotation_AAN.TabIndex = 7;
             textBoxAnnotation_AAN.TextAlign = HorizontalAlignment.Center;
             // 
@@ -109,7 +109,7 @@
             textBoxPrice_AAN.Multiline = true;
             textBoxPrice_AAN.Name = "textBoxPrice_AAN";
             textBoxPrice_AAN.PlaceholderText = "Цена книги";
-            textBoxPrice_AAN.Size = new Size(156, 24);
+            textBoxPrice_AAN.Size = new Size(156, 35);
             textBoxPrice_AAN.TabIndex = 6;
             textBoxPrice_AAN.TextAlign = HorizontalAlignment.Center;
             // 
@@ -119,7 +119,7 @@
             textBoxAuthor_AAN.Multiline = true;
             textBoxAuthor_AAN.Name = "textBoxAuthor_AAN";
             textBoxAuthor_AAN.PlaceholderText = "Автор произведения";
-            textBoxAuthor_AAN.Size = new Size(156, 26);
+            textBoxAuthor_AAN.Size = new Size(156, 40);
             textBoxAuthor_AAN.TabIndex = 5;
             textBoxAuthor_AAN.TextAlign = HorizontalAlignment.Center;
             textBoxAuthor_AAN.TextChanged += textBoxaAuthor_TextChanged;
@@ -130,7 +130,7 @@
             textBoxIsNewEdition_AAN.Multiline = true;
             textBoxIsNewEdition_AAN.Name = "textBoxIsNewEdition_AAN";
             textBoxIsNewEdition_AAN.PlaceholderText = "Это новое издание?";
-            textBoxIsNewEdition_AAN.Size = new Size(156, 24);
+            textBoxIsNewEdition_AAN.Size = new Size(156, 37);
             textBoxIsNewEdition_AAN.TabIndex = 4;
             textBoxIsNewEdition_AAN.TextAlign = HorizontalAlignment.Center;
             // 
@@ -140,7 +140,7 @@
             textBoxYearOfPubl_AAN.Multiline = true;
             textBoxYearOfPubl_AAN.Name = "textBoxYearOfPubl_AAN";
             textBoxYearOfPubl_AAN.PlaceholderText = "Год издания";
-            textBoxYearOfPubl_AAN.Size = new Size(156, 24);
+            textBoxYearOfPubl_AAN.Size = new Size(156, 35);
             textBoxYearOfPubl_AAN.TabIndex = 3;
             textBoxYearOfPubl_AAN.TextAlign = HorizontalAlignment.Center;
             // 
@@ -150,7 +150,7 @@
             textBoxTitle_AAN.Multiline = true;
             textBoxTitle_AAN.Name = "textBoxTitle_AAN";
             textBoxTitle_AAN.PlaceholderText = "Название произведения";
-            textBoxTitle_AAN.Size = new Size(156, 26);
+            textBoxTitle_AAN.Size = new Size(156, 40);
             textBoxTitle_AAN.TabIndex = 2;
             textBoxTitle_AAN.TextAlign = HorizontalAlignment.Center;
             // 

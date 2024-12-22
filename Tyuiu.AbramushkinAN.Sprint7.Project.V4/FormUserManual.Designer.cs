@@ -38,11 +38,11 @@
             textBoxUserManual_AAN.BackColor = SystemColors.Control;
             textBoxUserManual_AAN.BorderStyle = BorderStyle.None;
             textBoxUserManual_AAN.Font = new Font("Segoe UI", 14F);
-            textBoxUserManual_AAN.Location = new Point(12, 12);
+            textBoxUserManual_AAN.Location = new Point(12, 25);
             textBoxUserManual_AAN.Multiline = true;
             textBoxUserManual_AAN.Name = "textBoxUserManual_AAN";
             textBoxUserManual_AAN.ReadOnly = true;
-            textBoxUserManual_AAN.Size = new Size(760, 306);
+            textBoxUserManual_AAN.Size = new Size(760, 284);
             textBoxUserManual_AAN.TabIndex = 0;
             textBoxUserManual_AAN.Text = resources.GetString("textBoxUserManual_AAN.Text");
             textBoxUserManual_AAN.TextAlign = HorizontalAlignment.Center;

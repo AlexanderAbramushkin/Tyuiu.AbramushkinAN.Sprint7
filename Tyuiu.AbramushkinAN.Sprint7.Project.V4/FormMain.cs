@@ -1,5 +1,6 @@
 using System.Diagnostics.Metrics;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Windows.Forms;
 using Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib;
 
@@ -154,33 +155,45 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             FormUserManual formUserManual = new FormUserManual();
             formUserManual.ShowDialog();
         }
-
-
-        private void dataGridViewOutputData_AAN_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void buttonSaveFile_AAN_Click(object sender, EventArgs e)
         {
+            saveFileDialogSaveLib_AAN.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+            saveFileDialogSaveLib_AAN.ShowDialog();
+            string filename = saveFileDialogSaveLib_AAN.FileName;
+            FileInfo fileInfo = new FileInfo(filename);
+            bool fileExists = fileInfo.Exists;
 
+            if (fileExists)
+            {
+                File.Delete(filename);
+            }
+            int rows = dataGridViewOutData_AAN.RowCount;
+            int columns = dataGridViewOutData_AAN.ColumnCount;
+
+            string str = "";
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < columns; c++)
+                {
+                    if (c != columns - 1)
+                    {
+                        str += dataGridViewOutData_AAN.Rows[r].Cells[c].Value + ";";
+                    }
+                    else
+                    {
+                        str += dataGridViewOutData_AAN.Rows[r].Cells[c].Value;
+                    }
+                }
+                File.AppendAllText(filename, str + Environment.NewLine,Encoding.Unicode);
+                str = "";
+            }
+
+            string path = Path.GetDirectoryName(filename) + $"/{filename}";
+            MessageBox.Show($"Файл успешно сохранён.\n Путь файла: {path}", "Сохранение файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+           
         }
 
-        private void panelDataGrids_AAN_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void splitter2_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-
-
-        private void textBoxSearch_AAN_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonAdd_AAN_Click(object sender, EventArgs e)
         {
@@ -188,11 +201,6 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             formAddBook.ShowDialog();
 
 
-
-        }
-
-        private void chartPriceOfBook_AAN_Click(object sender, EventArgs e)
-        {
 
         }
     }
