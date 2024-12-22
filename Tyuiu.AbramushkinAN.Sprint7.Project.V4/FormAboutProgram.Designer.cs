@@ -60,12 +60,14 @@
             // 
             // buttonClose_AAN
             // 
-            buttonClose_AAN.Location = new Point(653, 312);
+            buttonClose_AAN.BackColor = SystemColors.Window;
+            buttonClose_AAN.FlatStyle = FlatStyle.Popup;
+            buttonClose_AAN.Location = new Point(678, 322);
             buttonClose_AAN.Name = "buttonClose_AAN";
-            buttonClose_AAN.Size = new Size(119, 37);
+            buttonClose_AAN.Size = new Size(94, 27);
             buttonClose_AAN.TabIndex = 2;
             buttonClose_AAN.Text = "Закрыть";
-            buttonClose_AAN.UseVisualStyleBackColor = true;
+            buttonClose_AAN.UseVisualStyleBackColor = false;
             buttonClose_AAN.Click += button1_Click;
             // 
             // FormAboutProgram

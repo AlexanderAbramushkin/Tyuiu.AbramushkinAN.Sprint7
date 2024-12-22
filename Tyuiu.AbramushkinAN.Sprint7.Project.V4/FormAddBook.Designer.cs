@@ -28,18 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBoxInfoAboutBook_AAN = new TextBox();
             buttonAddBook_AAN = new Button();
-            panel1 = new Panel();
-            buttonCloseWindow_AAN = new Button();
-            textBoxAnnotation_AAN = new TextBox();
-            textBoxPrice_AAN = new TextBox();
-            textBoxAuthor_AAN = new TextBox();
-            textBoxIsNewEdition_AAN = new TextBox();
-            textBoxYearOfPubl_AAN = new TextBox();
+            textBoxInfoAboutBook_AAN = new TextBox();
             textBoxTitle_AAN = new TextBox();
-            panel1.SuspendLayout();
+            textBoxYearOfPubl_AAN = new TextBox();
+            textBoxIsNewEdition_AAN = new TextBox();
+            textBoxAuthor_AAN = new TextBox();
+            textBoxPrice_AAN = new TextBox();
+            textBoxAnnotation_AAN = new TextBox();
+            panelAddBook_AAN = new Panel();
+            panelAddBook_AAN.SuspendLayout();
             SuspendLayout();
+            // 
+            // buttonAddBook_AAN
+            // 
+            buttonAddBook_AAN.BackColor = SystemColors.Window;
+            buttonAddBook_AAN.FlatStyle = FlatStyle.Popup;
+            buttonAddBook_AAN.Location = new Point(461, 321);
+            buttonAddBook_AAN.Name = "buttonAddBook_AAN";
+            buttonAddBook_AAN.Size = new Size(111, 28);
+            buttonAddBook_AAN.TabIndex = 1;
+            buttonAddBook_AAN.Text = "Добавить книгу";
+            buttonAddBook_AAN.UseVisualStyleBackColor = false;
+            buttonAddBook_AAN.Click += buttonAdd_AAN_Click;
             // 
             // textBoxInfoAboutBook_AAN
             // 
@@ -55,63 +66,35 @@
             textBoxInfoAboutBook_AAN.Text = "Заполните информацию о книге";
             textBoxInfoAboutBook_AAN.TextAlign = HorizontalAlignment.Center;
             // 
-            // buttonAddBook_AAN
+            // textBoxTitle_AAN
             // 
-            buttonAddBook_AAN.Location = new Point(461, 321);
-            buttonAddBook_AAN.Name = "buttonAddBook_AAN";
-            buttonAddBook_AAN.Size = new Size(111, 28);
-            buttonAddBook_AAN.TabIndex = 1;
-            buttonAddBook_AAN.Text = "Добавить книгу";
-            buttonAddBook_AAN.UseVisualStyleBackColor = true;
-            buttonAddBook_AAN.Click += button1_Click;
+            textBoxTitle_AAN.Location = new Point(63, 75);
+            textBoxTitle_AAN.Multiline = true;
+            textBoxTitle_AAN.Name = "textBoxTitle_AAN";
+            textBoxTitle_AAN.PlaceholderText = "Название произведения";
+            textBoxTitle_AAN.Size = new Size(156, 40);
+            textBoxTitle_AAN.TabIndex = 2;
+            textBoxTitle_AAN.TextAlign = HorizontalAlignment.Center;
             // 
-            // panel1
+            // textBoxYearOfPubl_AAN
             // 
-            panel1.Controls.Add(buttonCloseWindow_AAN);
-            panel1.Controls.Add(textBoxAnnotation_AAN);
-            panel1.Controls.Add(textBoxPrice_AAN);
-            panel1.Controls.Add(textBoxAuthor_AAN);
-            panel1.Controls.Add(textBoxIsNewEdition_AAN);
-            panel1.Controls.Add(textBoxYearOfPubl_AAN);
-            panel1.Controls.Add(textBoxTitle_AAN);
-            panel1.Controls.Add(textBoxInfoAboutBook_AAN);
-            panel1.Controls.Add(buttonAddBook_AAN);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(584, 361);
-            panel1.TabIndex = 2;
-            panel1.Paint += panel1_Paint;
+            textBoxYearOfPubl_AAN.Location = new Point(63, 161);
+            textBoxYearOfPubl_AAN.Multiline = true;
+            textBoxYearOfPubl_AAN.Name = "textBoxYearOfPubl_AAN";
+            textBoxYearOfPubl_AAN.PlaceholderText = "Год издания";
+            textBoxYearOfPubl_AAN.Size = new Size(156, 35);
+            textBoxYearOfPubl_AAN.TabIndex = 3;
+            textBoxYearOfPubl_AAN.TextAlign = HorizontalAlignment.Center;
             // 
-            // buttonCloseWindow_AAN
+            // textBoxIsNewEdition_AAN
             // 
-            buttonCloseWindow_AAN.Location = new Point(344, 321);
-            buttonCloseWindow_AAN.Name = "buttonCloseWindow_AAN";
-            buttonCloseWindow_AAN.Size = new Size(111, 28);
-            buttonCloseWindow_AAN.TabIndex = 8;
-            buttonCloseWindow_AAN.Text = "Закрыть окно";
-            buttonCloseWindow_AAN.UseVisualStyleBackColor = true;
-            buttonCloseWindow_AAN.Click += buttonCloseWindow_AAN_Click;
-            // 
-            // textBoxAnnotation_AAN
-            // 
-            textBoxAnnotation_AAN.Location = new Point(355, 252);
-            textBoxAnnotation_AAN.Multiline = true;
-            textBoxAnnotation_AAN.Name = "textBoxAnnotation_AAN";
-            textBoxAnnotation_AAN.PlaceholderText = "Аннотация";
-            textBoxAnnotation_AAN.Size = new Size(156, 37);
-            textBoxAnnotation_AAN.TabIndex = 7;
-            textBoxAnnotation_AAN.TextAlign = HorizontalAlignment.Center;
-            // 
-            // textBoxPrice_AAN
-            // 
-            textBoxPrice_AAN.Location = new Point(355, 161);
-            textBoxPrice_AAN.Multiline = true;
-            textBoxPrice_AAN.Name = "textBoxPrice_AAN";
-            textBoxPrice_AAN.PlaceholderText = "Цена книги";
-            textBoxPrice_AAN.Size = new Size(156, 35);
-            textBoxPrice_AAN.TabIndex = 6;
-            textBoxPrice_AAN.TextAlign = HorizontalAlignment.Center;
+            textBoxIsNewEdition_AAN.Location = new Point(63, 252);
+            textBoxIsNewEdition_AAN.Multiline = true;
+            textBoxIsNewEdition_AAN.Name = "textBoxIsNewEdition_AAN";
+            textBoxIsNewEdition_AAN.PlaceholderText = "Это новое издание?";
+            textBoxIsNewEdition_AAN.Size = new Size(156, 37);
+            textBoxIsNewEdition_AAN.TabIndex = 4;
+            textBoxIsNewEdition_AAN.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxAuthor_AAN
             // 
@@ -124,62 +107,68 @@
             textBoxAuthor_AAN.TextAlign = HorizontalAlignment.Center;
             textBoxAuthor_AAN.TextChanged += textBoxaAuthor_TextChanged;
             // 
-            // textBoxIsNewEdition_AAN
+            // textBoxPrice_AAN
             // 
-            textBoxIsNewEdition_AAN.Location = new Point(63, 252);
-            textBoxIsNewEdition_AAN.Multiline = true;
-            textBoxIsNewEdition_AAN.Name = "textBoxIsNewEdition_AAN";
-            textBoxIsNewEdition_AAN.PlaceholderText = "Это новое издание?";
-            textBoxIsNewEdition_AAN.Size = new Size(156, 37);
-            textBoxIsNewEdition_AAN.TabIndex = 4;
-            textBoxIsNewEdition_AAN.TextAlign = HorizontalAlignment.Center;
+            textBoxPrice_AAN.Location = new Point(355, 161);
+            textBoxPrice_AAN.Multiline = true;
+            textBoxPrice_AAN.Name = "textBoxPrice_AAN";
+            textBoxPrice_AAN.PlaceholderText = "Цена книги";
+            textBoxPrice_AAN.Size = new Size(156, 35);
+            textBoxPrice_AAN.TabIndex = 6;
+            textBoxPrice_AAN.TextAlign = HorizontalAlignment.Center;
             // 
-            // textBoxYearOfPubl_AAN
+            // textBoxAnnotation_AAN
             // 
-            textBoxYearOfPubl_AAN.Location = new Point(63, 161);
-            textBoxYearOfPubl_AAN.Multiline = true;
-            textBoxYearOfPubl_AAN.Name = "textBoxYearOfPubl_AAN";
-            textBoxYearOfPubl_AAN.PlaceholderText = "Год издания";
-            textBoxYearOfPubl_AAN.Size = new Size(156, 35);
-            textBoxYearOfPubl_AAN.TabIndex = 3;
-            textBoxYearOfPubl_AAN.TextAlign = HorizontalAlignment.Center;
+            textBoxAnnotation_AAN.Location = new Point(355, 252);
+            textBoxAnnotation_AAN.Multiline = true;
+            textBoxAnnotation_AAN.Name = "textBoxAnnotation_AAN";
+            textBoxAnnotation_AAN.PlaceholderText = "Аннотация";
+            textBoxAnnotation_AAN.Size = new Size(156, 37);
+            textBoxAnnotation_AAN.TabIndex = 7;
+            textBoxAnnotation_AAN.TextAlign = HorizontalAlignment.Center;
             // 
-            // textBoxTitle_AAN
+            // panelAddBook_AAN
             // 
-            textBoxTitle_AAN.Location = new Point(63, 75);
-            textBoxTitle_AAN.Multiline = true;
-            textBoxTitle_AAN.Name = "textBoxTitle_AAN";
-            textBoxTitle_AAN.PlaceholderText = "Название произведения";
-            textBoxTitle_AAN.Size = new Size(156, 40);
-            textBoxTitle_AAN.TabIndex = 2;
-            textBoxTitle_AAN.TextAlign = HorizontalAlignment.Center;
+            panelAddBook_AAN.Controls.Add(textBoxAnnotation_AAN);
+            panelAddBook_AAN.Controls.Add(textBoxPrice_AAN);
+            panelAddBook_AAN.Controls.Add(textBoxAuthor_AAN);
+            panelAddBook_AAN.Controls.Add(textBoxIsNewEdition_AAN);
+            panelAddBook_AAN.Controls.Add(textBoxYearOfPubl_AAN);
+            panelAddBook_AAN.Controls.Add(textBoxTitle_AAN);
+            panelAddBook_AAN.Controls.Add(textBoxInfoAboutBook_AAN);
+            panelAddBook_AAN.Controls.Add(buttonAddBook_AAN);
+            panelAddBook_AAN.Dock = DockStyle.Fill;
+            panelAddBook_AAN.Location = new Point(0, 0);
+            panelAddBook_AAN.Name = "panelAddBook_AAN";
+            panelAddBook_AAN.Size = new Size(584, 361);
+            panelAddBook_AAN.TabIndex = 2;
+            panelAddBook_AAN.Paint += panel1_Paint;
             // 
             // FormAddBook_AAN
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(584, 361);
-            Controls.Add(panel1);
+            Controls.Add(panelAddBook_AAN);
             MaximumSize = new Size(600, 400);
             MinimumSize = new Size(600, 400);
             Name = "FormAddBook_AAN";
             Text = "Новая книга";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelAddBook_AAN.ResumeLayout(false);
+            panelAddBook_AAN.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TextBox textBoxInfoAboutBook_AAN;
         private Button buttonAddBook_AAN;
-        private Panel panel1;
-        private TextBox textBoxPrice_AAN;
-        private TextBox textBoxAuthor_AAN;
-        private TextBox textBoxIsNewEdition_AAN;
-        private TextBox textBoxYearOfPubl_AAN;
+        private TextBox textBoxInfoAboutBook_AAN;
         private TextBox textBoxTitle_AAN;
+        private TextBox textBoxYearOfPubl_AAN;
+        private TextBox textBoxIsNewEdition_AAN;
+        private TextBox textBoxAuthor_AAN;
+        private TextBox textBoxPrice_AAN;
         private TextBox textBoxAnnotation_AAN;
-        private Button buttonCloseWindow_AAN;
+        private Panel panelAddBook_AAN;
     }
 }

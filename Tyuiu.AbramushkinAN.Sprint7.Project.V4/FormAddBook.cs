@@ -35,7 +35,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             public bool is_new_edition { get; set; }
             public string annotation { get; set; }
         }
-        public void button1_Click(object sender, EventArgs e)
+        public void buttonAdd_AAN_Click(object sender, EventArgs e)
         {
             try
             {
@@ -87,6 +87,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                 sw.Write($"\t{JsonStr},\n]");
                 sw.Close();
                 MessageBox.Show("Книга добавлена успешно", "Добавление новой книги", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();   
             }            
             catch
             {

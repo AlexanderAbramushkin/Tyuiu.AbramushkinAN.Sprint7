@@ -37,7 +37,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panelInstruments_AAN = new Panel();
-            buttonUpdate_AAN = new Button();
+            pictureBox1 = new PictureBox();
             buttonAdd_AAN = new Button();
             textBoxSearch_AAN = new TextBox();
             buttonSearch_AAN = new Button();
@@ -58,6 +58,7 @@
             toolTipUserManual_AAN = new ToolTip(components);
             saveFileDialogSaveLib_AAN = new SaveFileDialog();
             panelInstruments_AAN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartPriceOfBook_AAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOutData_AAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartYearOfPublication_AAN).BeginInit();
@@ -71,7 +72,7 @@
             // 
             // panelInstruments_AAN
             // 
-            panelInstruments_AAN.Controls.Add(buttonUpdate_AAN);
+            panelInstruments_AAN.Controls.Add(pictureBox1);
             panelInstruments_AAN.Controls.Add(buttonAdd_AAN);
             panelInstruments_AAN.Controls.Add(textBoxSearch_AAN);
             panelInstruments_AAN.Controls.Add(buttonSearch_AAN);
@@ -84,23 +85,15 @@
             panelInstruments_AAN.Size = new Size(1264, 68);
             panelInstruments_AAN.TabIndex = 0;
             // 
-            // buttonUpdate_AAN
+            // pictureBox1
             // 
-            buttonUpdate_AAN.Anchor = AnchorStyles.Left;
-            buttonUpdate_AAN.BackColor = SystemColors.Control;
-            buttonUpdate_AAN.BackgroundImageLayout = ImageLayout.None;
-            buttonUpdate_AAN.FlatAppearance.BorderColor = SystemColors.Control;
-            buttonUpdate_AAN.FlatAppearance.BorderSize = 0;
-            buttonUpdate_AAN.FlatStyle = FlatStyle.Popup;
-            buttonUpdate_AAN.ForeColor = SystemColors.ActiveCaptionText;
-            buttonUpdate_AAN.Image = (Image)resources.GetObject("buttonUpdate_AAN.Image");
-            buttonUpdate_AAN.Location = new Point(12, 12);
-            buttonUpdate_AAN.Name = "buttonUpdate_AAN";
-            buttonUpdate_AAN.Size = new Size(44, 44);
-            buttonUpdate_AAN.TabIndex = 6;
-            toolTipUpdate_AAN.SetToolTip(buttonUpdate_AAN, "Нажмите на кнопку, чтобы обновить список книг\r\n");
-            buttonUpdate_AAN.UseVisualStyleBackColor = false;
-            buttonUpdate_AAN.Click += buttonUpdate_AAN_Click;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(8, 8);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(48, 48);
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += buttonUpdate_AAN_Click;
             // 
             // buttonAdd_AAN
             // 
@@ -312,6 +305,7 @@
             Load += FormMain_Load;
             panelInstruments_AAN.ResumeLayout(false);
             panelInstruments_AAN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartPriceOfBook_AAN).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOutData_AAN).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartYearOfPublication_AAN).EndInit();
@@ -335,7 +329,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartYearOfPublication_AAN;
         private TextBox textBoxSearch_AAN;
         private Button buttonAdd_AAN;
-        private Button buttonUpdate_AAN;
         private Panel panelDataGrid_AAN;
         private TableLayoutPanel tableLayoutPanelDataGridandCharts_AAN;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartPriceOfBook_AAN;
@@ -347,5 +340,6 @@
         private ToolTip toolTipSaveFile_AAN;
         private ToolTip toolTipUserManual_AAN;
         private SaveFileDialog saveFileDialogSaveLib_AAN;
+        private PictureBox pictureBox1;
     }
 }
