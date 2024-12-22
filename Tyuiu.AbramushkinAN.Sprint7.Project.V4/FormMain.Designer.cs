@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain_AAN));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -35,6 +36,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panelInstruments_AAN = new Panel();
+            buttonUpdate_AAN = new Button();
+            buttonAdd_AAN = new Button();
             textBoxSearch_AAN = new TextBox();
             buttonSearch_AAN = new Button();
             buttonSaveFile_AAN = new Button();
@@ -55,6 +58,8 @@
             // 
             // panelInstruments_AAN
             // 
+            panelInstruments_AAN.Controls.Add(buttonUpdate_AAN);
+            panelInstruments_AAN.Controls.Add(buttonAdd_AAN);
             panelInstruments_AAN.Controls.Add(textBoxSearch_AAN);
             panelInstruments_AAN.Controls.Add(buttonSearch_AAN);
             panelInstruments_AAN.Controls.Add(buttonSaveFile_AAN);
@@ -66,17 +71,34 @@
             panelInstruments_AAN.Size = new Size(1264, 68);
             panelInstruments_AAN.TabIndex = 0;
             // 
+            // buttonUpdate_AAN
+            // 
+            buttonUpdate_AAN.Image = (Image)resources.GetObject("buttonUpdate_AAN.Image");
+            buttonUpdate_AAN.Location = new Point(724, 12);
+            buttonUpdate_AAN.Name = "buttonUpdate_AAN";
+            buttonUpdate_AAN.Size = new Size(44, 44);
+            buttonUpdate_AAN.TabIndex = 6;
+            buttonUpdate_AAN.UseVisualStyleBackColor = true;
+            buttonUpdate_AAN.Click += buttonUpdate_AAN_Click;
+            // 
+            // buttonAdd_AAN
+            // 
+            buttonAdd_AAN.Anchor = AnchorStyles.Right;
+            buttonAdd_AAN.Location = new Point(774, 12);
+            buttonAdd_AAN.Name = "buttonAdd_AAN";
+            buttonAdd_AAN.Size = new Size(115, 44);
+            buttonAdd_AAN.TabIndex = 5;
+            buttonAdd_AAN.Text = "Добавить произведение";
+            buttonAdd_AAN.UseVisualStyleBackColor = true;
+            buttonAdd_AAN.Click += buttonAdd_AAN_Click;
+            // 
             // textBoxSearch_AAN
             // 
-            textBoxSearch_AAN.Anchor = AnchorStyles.Left;
-            textBoxSearch_AAN.Location = new Point(29, 24);
-            textBoxSearch_AAN.Multiline = true;
+            textBoxSearch_AAN.Location = new Point(12, 18);
             textBoxSearch_AAN.Name = "textBoxSearch_AAN";
-            textBoxSearch_AAN.PasswordChar = ' ';
-            textBoxSearch_AAN.PlaceholderText = "Поиск";
-            textBoxSearch_AAN.Size = new Size(270, 22);
+            textBoxSearch_AAN.PlaceholderText = "Введите название книги";
+            textBoxSearch_AAN.Size = new Size(287, 23);
             textBoxSearch_AAN.TabIndex = 4;
-            textBoxSearch_AAN.Tag = "";
             // 
             // buttonSearch_AAN
             // 
@@ -85,8 +107,9 @@
             buttonSearch_AAN.Name = "buttonSearch_AAN";
             buttonSearch_AAN.Size = new Size(115, 33);
             buttonSearch_AAN.TabIndex = 2;
-            buttonSearch_AAN.Text = "Поиск";
+            buttonSearch_AAN.Text = "Найти";
             buttonSearch_AAN.UseVisualStyleBackColor = true;
+            buttonSearch_AAN.Click += buttonSearch_Click;
             // 
             // buttonSaveFile_AAN
             // 
@@ -141,19 +164,23 @@
             // 
             // dataGridViewData_AAN
             // 
+            dataGridViewData_AAN.AllowUserToDeleteRows = false;
             dataGridViewData_AAN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewData_AAN.Dock = DockStyle.Fill;
             dataGridViewData_AAN.Location = new Point(3, 3);
             dataGridViewData_AAN.Name = "dataGridViewData_AAN";
+            dataGridViewData_AAN.RowHeadersVisible = false;
             dataGridViewData_AAN.Size = new Size(626, 326);
             dataGridViewData_AAN.TabIndex = 0;
             // 
             // dataGridViewOutData_AAN
             // 
+            dataGridViewOutData_AAN.AllowUserToDeleteRows = false;
             dataGridViewOutData_AAN.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewOutData_AAN.Dock = DockStyle.Fill;
             dataGridViewOutData_AAN.Location = new Point(635, 3);
             dataGridViewOutData_AAN.Name = "dataGridViewOutData_AAN";
+            dataGridViewOutData_AAN.RowHeadersVisible = false;
             dataGridViewOutData_AAN.Size = new Size(626, 326);
             dataGridViewOutData_AAN.TabIndex = 1;
             // 
@@ -198,10 +225,10 @@
             ClientSize = new Size(1264, 732);
             Controls.Add(tableLayoutPanelData_AAN);
             Controls.Add(panelInstruments_AAN);
-            MaximumSize = new Size(1920, 1080);
             MinimumSize = new Size(1280, 720);
             Name = "FormMain_AAN";
             Text = "Главное меню";
+            Load += FormMain_Load;
             panelInstruments_AAN.ResumeLayout(false);
             panelInstruments_AAN.PerformLayout();
             tableLayoutPanelData_AAN.ResumeLayout(false);
@@ -219,11 +246,13 @@
         private Button buttonSearch_AAN;
         private Button buttonUserManual_AAN;
         private Button buttonAboutProgram_AAN;
-        private TextBox textBoxSearch_AAN;
         private TableLayoutPanel tableLayoutPanelData_AAN;
         private DataGridView dataGridViewData_AAN;
         private DataGridView dataGridViewOutData_AAN;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartYearOfPublication_AAN;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartPriceOfBook_AAN;
+        private TextBox textBoxSearch_AAN;
+        private Button buttonAdd_AAN;
+        private Button buttonUpdate_AAN;
     }
 }

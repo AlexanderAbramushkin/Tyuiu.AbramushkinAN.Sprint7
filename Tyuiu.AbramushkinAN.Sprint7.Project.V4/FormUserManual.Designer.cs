@@ -38,7 +38,7 @@
             textBoxUserManual_AAN.BackColor = SystemColors.Control;
             textBoxUserManual_AAN.BorderStyle = BorderStyle.None;
             textBoxUserManual_AAN.Font = new Font("Segoe UI", 14F);
-            textBoxUserManual_AAN.Location = new Point(12, 12);
+            textBoxUserManual_AAN.Location = new Point(12, 29);
             textBoxUserManual_AAN.Multiline = true;
             textBoxUserManual_AAN.Name = "textBoxUserManual_AAN";
             textBoxUserManual_AAN.ReadOnly = true;
