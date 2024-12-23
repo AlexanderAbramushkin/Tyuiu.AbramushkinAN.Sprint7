@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib;
+using static System.Windows.Forms.DataFormats;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
@@ -21,10 +23,13 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
     public partial class FormAddBook_AAN : Form
     {
         DataService ds = new DataService();
-        public FormAddBook_AAN()
+        public FormAddBook_AAN(string data)
         {
             InitializeComponent();
+
+            this.data = data;
         }
+        string data;
 
         public class Book
         {
@@ -37,6 +42,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
         }
         public void buttonAdd_AAN_Click(object sender, EventArgs e)
         {
+            FormMain_AAN formmain = new FormMain_AAN();
             try
             {
                 string Title = textBoxTitle_AAN.Text;
@@ -66,11 +72,10 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                     is_new_edition = IsNewEdition,
                     annotation = Annotation
                 };
-            
+            string JsonPath = data;
                 string JsonStr = JsonConvert.SerializeObject(book);
-                string path = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Library.json";
-                string[] JSON = File.ReadAllLines(path);
-                File.WriteAllLines(path, JSON);
+                string[] JSON = File.ReadAllLines(JsonPath);
+                File.WriteAllLines(JsonPath, JSON);
                 for (int i = 0; i < JSON.Length; i++)
                 {
                     if(JSON[i] == "]")
@@ -78,8 +83,8 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                         JSON[i] = "";
                     }    
                 }
-                File.Delete(path);
-                StreamWriter sw = new StreamWriter(path, true, Encoding.Default);
+                File.Delete(JsonPath);
+                StreamWriter sw = new StreamWriter(JsonPath, true, Encoding.Default);
                 for (int i = 0; i < JSON.Length; i++)
                 {
                     sw.WriteLine(JSON[i]);
@@ -87,28 +92,15 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                 sw.Write($"\t{JsonStr},\n]");
                 sw.Close();
                 MessageBox.Show("Книга добавлена успешно", "Добавление новой книги", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();   
+                this.Close();
             }            
             catch
             {
                 MessageBox.Show("Проверьте корректность введённых данных", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-                
-        }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+}
 
-        }
-
-        private void textBoxaAuthor_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonCloseWindow_AAN_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+     
     }
 }

@@ -29,24 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAboutProgram));
-            textBoxAboutProgram_AAN = new TextBox();
             pictureBoxDeveloper_AAN = new PictureBox();
             buttonClose_AAN = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxDeveloper_AAN).BeginInit();
             SuspendLayout();
-            // 
-            // textBoxAboutProgram_AAN
-            // 
-            textBoxAboutProgram_AAN.BackColor = SystemColors.Control;
-            textBoxAboutProgram_AAN.BorderStyle = BorderStyle.None;
-            textBoxAboutProgram_AAN.Font = new Font("Segoe UI", 14F);
-            textBoxAboutProgram_AAN.Location = new Point(246, 12);
-            textBoxAboutProgram_AAN.Multiline = true;
-            textBoxAboutProgram_AAN.Name = "textBoxAboutProgram_AAN";
-            textBoxAboutProgram_AAN.ReadOnly = true;
-            textBoxAboutProgram_AAN.Size = new Size(526, 294);
-            textBoxAboutProgram_AAN.TabIndex = 0;
-            textBoxAboutProgram_AAN.Text = resources.GetString("textBoxAboutProgram_AAN.Text");
             // 
             // pictureBoxDeveloper_AAN
             // 
@@ -68,16 +55,26 @@
             buttonClose_AAN.TabIndex = 2;
             buttonClose_AAN.Text = "Закрыть";
             buttonClose_AAN.UseVisualStyleBackColor = false;
-            buttonClose_AAN.Click += button1_Click;
+            buttonClose_AAN.Click += buttonClose_AAN_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14F);
+            label1.Location = new Point(246, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(501, 300);
+            label1.TabIndex = 3;
+            label1.Text = resources.GetString("label1.Text");
             // 
             // FormAboutProgram
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 361);
+            Controls.Add(label1);
             Controls.Add(buttonClose_AAN);
             Controls.Add(pictureBoxDeveloper_AAN);
-            Controls.Add(textBoxAboutProgram_AAN);
             MaximumSize = new Size(800, 400);
             MinimumSize = new Size(800, 400);
             Name = "FormAboutProgram";
@@ -88,9 +85,8 @@
         }
 
         #endregion
-
-        private TextBox textBoxAboutProgram_AAN;
         private PictureBox pictureBoxDeveloper_AAN;
         private Button buttonClose_AAN;
+        private Label label1;
     }
 }

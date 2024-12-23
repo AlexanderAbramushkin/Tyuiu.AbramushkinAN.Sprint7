@@ -117,20 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBoxAboutProgram_AAN.Text" xml:space="preserve">
-    <value>Разработчик: Абрамушкин А.Н.
-Группа: ИИПб-24-2
-
-Программа: Библиотека
-
-Программа разработана в рамках изучения языка C#
-
-Тюменский индустриальный универститет (C) 2024
-Высшая школа цифровых технологий (C) 2024
-
-Внутреннее имя: Tyuiu.AbramushkinAN.Sprint7.Project.V4
-</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBoxDeveloper_AAN.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1445,6 +1431,21 @@
         OjYX8Dy/kAuYx0GEFB0CwGCg4ZZcLghw2g0Mgig8i4GaSORMEY8+E4QbuoQjhjFTk4MVBOQBNID7ByUg
         5MoMtoDG+uJ9vlYFaeT4iTRD/U7IJd8YAoh+66SAoBUPqgaMkfS7Afqu4eDBn7NJ8ACxJkoqg8hNlL8g
         /AhLzeOyRbSYFyidmQ//2Q==
+</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Разработчик: Абрамушкин А.Н.
+Группа: ИИПб-24-2
+
+Программа: Библиотека
+
+Программа разработана в рамках изучения языка C#
+
+Тюменский индустриальный универститет (C) 2024
+Высшая школа цифровых технологий (C) 2024
+
+Внутреннее имя: Tyuiu.AbramushkinAN.Sprint7.Project.V4
+
 </value>
   </data>
 </root>

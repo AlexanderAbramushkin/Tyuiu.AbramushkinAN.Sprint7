@@ -37,7 +37,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panelInstruments_AAN = new Panel();
-            pictureBox1 = new PictureBox();
+            buttonOpenFile_AAN = new Button();
+            pictureBoxUpdate_AAN = new PictureBox();
             buttonAdd_AAN = new Button();
             textBoxSearch_AAN = new TextBox();
             buttonSearch_AAN = new Button();
@@ -57,8 +58,10 @@
             toolTipSaveFile_AAN = new ToolTip(components);
             toolTipUserManual_AAN = new ToolTip(components);
             saveFileDialogSaveLib_AAN = new SaveFileDialog();
+            toolTipOpenFile_AAN = new ToolTip(components);
+            openFileDialogJSON_AAN = new OpenFileDialog();
             panelInstruments_AAN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUpdate_AAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartPriceOfBook_AAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOutData_AAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartYearOfPublication_AAN).BeginInit();
@@ -72,7 +75,8 @@
             // 
             // panelInstruments_AAN
             // 
-            panelInstruments_AAN.Controls.Add(pictureBox1);
+            panelInstruments_AAN.Controls.Add(buttonOpenFile_AAN);
+            panelInstruments_AAN.Controls.Add(pictureBoxUpdate_AAN);
             panelInstruments_AAN.Controls.Add(buttonAdd_AAN);
             panelInstruments_AAN.Controls.Add(textBoxSearch_AAN);
             panelInstruments_AAN.Controls.Add(buttonSearch_AAN);
@@ -85,15 +89,31 @@
             panelInstruments_AAN.Size = new Size(1264, 68);
             panelInstruments_AAN.TabIndex = 0;
             // 
-            // pictureBox1
+            // buttonOpenFile_AAN
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(8, 8);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(48, 48);
-            pictureBox1.TabIndex = 7;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += buttonUpdate_AAN_Click;
+            buttonOpenFile_AAN.Anchor = AnchorStyles.Right;
+            buttonOpenFile_AAN.BackColor = SystemColors.Window;
+            buttonOpenFile_AAN.BackgroundImageLayout = ImageLayout.None;
+            buttonOpenFile_AAN.FlatStyle = FlatStyle.Popup;
+            buttonOpenFile_AAN.Image = (Image)resources.GetObject("buttonOpenFile_AAN.Image");
+            buttonOpenFile_AAN.Location = new Point(940, 4);
+            buttonOpenFile_AAN.Name = "buttonOpenFile_AAN";
+            buttonOpenFile_AAN.Size = new Size(60, 60);
+            buttonOpenFile_AAN.TabIndex = 8;
+            toolTipOpenFile_AAN.SetToolTip(buttonOpenFile_AAN, "Нажмите на кнопку, чтобы открыть JSON-файл\r\n");
+            buttonOpenFile_AAN.UseVisualStyleBackColor = false;
+            buttonOpenFile_AAN.Click += buttonOpenFile_AAN_Click;
+            // 
+            // pictureBoxUpdate_AAN
+            // 
+            pictureBoxUpdate_AAN.ErrorImage = (Image)resources.GetObject("pictureBoxUpdate_AAN.ErrorImage");
+            pictureBoxUpdate_AAN.Image = (Image)resources.GetObject("pictureBoxUpdate_AAN.Image");
+            pictureBoxUpdate_AAN.Location = new Point(8, 8);
+            pictureBoxUpdate_AAN.Name = "pictureBoxUpdate_AAN";
+            pictureBoxUpdate_AAN.Size = new Size(48, 48);
+            pictureBoxUpdate_AAN.TabIndex = 7;
+            pictureBoxUpdate_AAN.TabStop = false;
+            pictureBoxUpdate_AAN.Click += buttonUpdate_AAN_Click;
             // 
             // buttonAdd_AAN
             // 
@@ -101,11 +121,11 @@
             buttonAdd_AAN.BackColor = SystemColors.Window;
             buttonAdd_AAN.BackgroundImageLayout = ImageLayout.None;
             buttonAdd_AAN.FlatStyle = FlatStyle.Popup;
-            buttonAdd_AAN.Location = new Point(842, 12);
+            buttonAdd_AAN.Image = (Image)resources.GetObject("buttonAdd_AAN.Image");
+            buttonAdd_AAN.Location = new Point(1005, 4);
             buttonAdd_AAN.Name = "buttonAdd_AAN";
-            buttonAdd_AAN.Size = new Size(115, 44);
+            buttonAdd_AAN.Size = new Size(60, 60);
             buttonAdd_AAN.TabIndex = 5;
-            buttonAdd_AAN.Text = "Добавить произведение";
             toolTipAddBook_AAN.SetToolTip(buttonAdd_AAN, "Нажмите на кнопку, чтобы добавить книгу в список");
             buttonAdd_AAN.UseVisualStyleBackColor = false;
             buttonAdd_AAN.Click += buttonAdd_AAN_Click;
@@ -117,19 +137,22 @@
             textBoxSearch_AAN.PlaceholderText = "Введите название книги";
             textBoxSearch_AAN.Size = new Size(192, 23);
             textBoxSearch_AAN.TabIndex = 4;
+            textBoxSearch_AAN.TextAlign = HorizontalAlignment.Center;
+            textBoxSearch_AAN.KeyDown += textBoxSearch_AAN_KeyDown;
             // 
             // buttonSearch_AAN
             // 
             buttonSearch_AAN.Anchor = AnchorStyles.Left;
             buttonSearch_AAN.BackColor = SystemColors.Window;
             buttonSearch_AAN.FlatStyle = FlatStyle.Popup;
-            buttonSearch_AAN.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonSearch_AAN.Font = new Font("Nunito Sans Normal Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonSearch_AAN.ForeColor = SystemColors.ControlText;
-            buttonSearch_AAN.Location = new Point(260, 12);
+            buttonSearch_AAN.Location = new Point(260, 24);
             buttonSearch_AAN.Name = "buttonSearch_AAN";
-            buttonSearch_AAN.Size = new Size(115, 44);
+            buttonSearch_AAN.Size = new Size(70, 23);
             buttonSearch_AAN.TabIndex = 2;
-            buttonSearch_AAN.Text = "Найти";
+            buttonSearch_AAN.Text = "Поиск";
+            buttonSearch_AAN.TextAlign = ContentAlignment.TopCenter;
             toolTipSearch_AAN.SetToolTip(buttonSearch_AAN, "Напишите название книги в окне и нажмите на кнопку, чтобы выполнить поиск\r\n");
             buttonSearch_AAN.UseVisualStyleBackColor = false;
             buttonSearch_AAN.Click += buttonSearch_Click;
@@ -139,11 +162,11 @@
             buttonSaveFile_AAN.Anchor = AnchorStyles.Right;
             buttonSaveFile_AAN.BackColor = SystemColors.Window;
             buttonSaveFile_AAN.FlatStyle = FlatStyle.Popup;
-            buttonSaveFile_AAN.Location = new Point(963, 12);
+            buttonSaveFile_AAN.Image = (Image)resources.GetObject("buttonSaveFile_AAN.Image");
+            buttonSaveFile_AAN.Location = new Point(1070, 4);
             buttonSaveFile_AAN.Name = "buttonSaveFile_AAN";
-            buttonSaveFile_AAN.Size = new Size(115, 44);
+            buttonSaveFile_AAN.Size = new Size(60, 60);
             buttonSaveFile_AAN.TabIndex = 3;
-            buttonSaveFile_AAN.Text = "Сохранить в файл";
             toolTipSaveFile_AAN.SetToolTip(buttonSaveFile_AAN, "Нажмите на кнопку, чтобы сохранить список в формате CSV");
             buttonSaveFile_AAN.UseVisualStyleBackColor = false;
             buttonSaveFile_AAN.Click += buttonSaveFile_AAN_Click;
@@ -153,11 +176,11 @@
             buttonUserManual_AAN.Anchor = AnchorStyles.Right;
             buttonUserManual_AAN.BackColor = SystemColors.Window;
             buttonUserManual_AAN.FlatStyle = FlatStyle.Popup;
-            buttonUserManual_AAN.Location = new Point(1084, 12);
+            buttonUserManual_AAN.Image = (Image)resources.GetObject("buttonUserManual_AAN.Image");
+            buttonUserManual_AAN.Location = new Point(1135, 4);
             buttonUserManual_AAN.Name = "buttonUserManual_AAN";
-            buttonUserManual_AAN.Size = new Size(115, 44);
+            buttonUserManual_AAN.Size = new Size(60, 60);
             buttonUserManual_AAN.TabIndex = 1;
-            buttonUserManual_AAN.Text = "Руководство пользователя";
             toolTipUserManual_AAN.SetToolTip(buttonUserManual_AAN, "Нажмите на кнопку, чтобы ознакомиться с руководством пользователя");
             buttonUserManual_AAN.UseVisualStyleBackColor = false;
             buttonUserManual_AAN.Click += buttonUserManual_AAN_Click;
@@ -168,9 +191,10 @@
             buttonAboutProgram_AAN.BackColor = SystemColors.Window;
             buttonAboutProgram_AAN.FlatStyle = FlatStyle.Popup;
             buttonAboutProgram_AAN.Image = (Image)resources.GetObject("buttonAboutProgram_AAN.Image");
-            buttonAboutProgram_AAN.Location = new Point(1205, 12);
+            buttonAboutProgram_AAN.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonAboutProgram_AAN.Location = new Point(1200, 4);
             buttonAboutProgram_AAN.Name = "buttonAboutProgram_AAN";
-            buttonAboutProgram_AAN.Size = new Size(44, 44);
+            buttonAboutProgram_AAN.Size = new Size(60, 60);
             buttonAboutProgram_AAN.TabIndex = 0;
             toolTiзAboutProgram_AAN.SetToolTip(buttonAboutProgram_AAN, "Нажмите на кнопку, чтобы ознакомиться с информацией о программе");
             buttonAboutProgram_AAN.UseVisualStyleBackColor = false;
@@ -292,6 +316,15 @@
             toolTipUserManual_AAN.ToolTipIcon = ToolTipIcon.Info;
             toolTipUserManual_AAN.ToolTipTitle = "Руководство пользователя";
             // 
+            // toolTipOpenFile_AAN
+            // 
+            toolTipOpenFile_AAN.ToolTipIcon = ToolTipIcon.Info;
+            toolTipOpenFile_AAN.ToolTipTitle = "Открыть файл";
+            // 
+            // openFileDialogJSON_AAN
+            // 
+            openFileDialogJSON_AAN.FileName = "openFileDialog1";
+            // 
             // FormMain_AAN
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -305,7 +338,7 @@
             Load += FormMain_Load;
             panelInstruments_AAN.ResumeLayout(false);
             panelInstruments_AAN.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxUpdate_AAN).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartPriceOfBook_AAN).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOutData_AAN).EndInit();
             ((System.ComponentModel.ISupportInitialize)chartYearOfPublication_AAN).EndInit();
@@ -340,6 +373,9 @@
         private ToolTip toolTipSaveFile_AAN;
         private ToolTip toolTipUserManual_AAN;
         private SaveFileDialog saveFileDialogSaveLib_AAN;
-        private PictureBox pictureBox1;
+        private PictureBox pictureBoxUpdate_AAN;
+        private Button buttonOpenFile_AAN;
+        private ToolTip toolTipOpenFile_AAN;
+        private OpenFileDialog openFileDialogJSON_AAN;
     }
 }

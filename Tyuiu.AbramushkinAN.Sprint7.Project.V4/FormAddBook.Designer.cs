@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             buttonAddBook_AAN = new Button();
-            textBoxInfoAboutBook_AAN = new TextBox();
             textBoxTitle_AAN = new TextBox();
             textBoxYearOfPubl_AAN = new TextBox();
             textBoxIsNewEdition_AAN = new TextBox();
@@ -37,6 +36,7 @@
             textBoxPrice_AAN = new TextBox();
             textBoxAnnotation_AAN = new TextBox();
             panelAddBook_AAN = new Panel();
+            labelNewBook_AAN = new Label();
             panelAddBook_AAN.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,20 +51,6 @@
             buttonAddBook_AAN.Text = "Добавить книгу";
             buttonAddBook_AAN.UseVisualStyleBackColor = false;
             buttonAddBook_AAN.Click += buttonAdd_AAN_Click;
-            // 
-            // textBoxInfoAboutBook_AAN
-            // 
-            textBoxInfoAboutBook_AAN.BackColor = SystemColors.Control;
-            textBoxInfoAboutBook_AAN.BorderStyle = BorderStyle.None;
-            textBoxInfoAboutBook_AAN.Font = new Font("Segoe UI", 15F);
-            textBoxInfoAboutBook_AAN.Location = new Point(121, 12);
-            textBoxInfoAboutBook_AAN.Multiline = true;
-            textBoxInfoAboutBook_AAN.Name = "textBoxInfoAboutBook_AAN";
-            textBoxInfoAboutBook_AAN.ReadOnly = true;
-            textBoxInfoAboutBook_AAN.Size = new Size(341, 36);
-            textBoxInfoAboutBook_AAN.TabIndex = 0;
-            textBoxInfoAboutBook_AAN.Text = "Заполните информацию о книге";
-            textBoxInfoAboutBook_AAN.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxTitle_AAN
             // 
@@ -105,7 +91,6 @@
             textBoxAuthor_AAN.Size = new Size(156, 40);
             textBoxAuthor_AAN.TabIndex = 5;
             textBoxAuthor_AAN.TextAlign = HorizontalAlignment.Center;
-            textBoxAuthor_AAN.TextChanged += textBoxaAuthor_TextChanged;
             // 
             // textBoxPrice_AAN
             // 
@@ -129,20 +114,29 @@
             // 
             // panelAddBook_AAN
             // 
+            panelAddBook_AAN.Controls.Add(labelNewBook_AAN);
             panelAddBook_AAN.Controls.Add(textBoxAnnotation_AAN);
             panelAddBook_AAN.Controls.Add(textBoxPrice_AAN);
             panelAddBook_AAN.Controls.Add(textBoxAuthor_AAN);
             panelAddBook_AAN.Controls.Add(textBoxIsNewEdition_AAN);
             panelAddBook_AAN.Controls.Add(textBoxYearOfPubl_AAN);
             panelAddBook_AAN.Controls.Add(textBoxTitle_AAN);
-            panelAddBook_AAN.Controls.Add(textBoxInfoAboutBook_AAN);
             panelAddBook_AAN.Controls.Add(buttonAddBook_AAN);
             panelAddBook_AAN.Dock = DockStyle.Fill;
             panelAddBook_AAN.Location = new Point(0, 0);
             panelAddBook_AAN.Name = "panelAddBook_AAN";
             panelAddBook_AAN.Size = new Size(584, 361);
             panelAddBook_AAN.TabIndex = 2;
-            panelAddBook_AAN.Paint += panel1_Paint;
+            // 
+            // labelNewBook_AAN
+            // 
+            labelNewBook_AAN.AutoSize = true;
+            labelNewBook_AAN.Font = new Font("Segoe UI", 15F);
+            labelNewBook_AAN.Location = new Point(134, 18);
+            labelNewBook_AAN.Name = "labelNewBook_AAN";
+            labelNewBook_AAN.Size = new Size(315, 28);
+            labelNewBook_AAN.TabIndex = 8;
+            labelNewBook_AAN.Text = "Заполните информацию о книге\r\n";
             // 
             // FormAddBook_AAN
             // 
@@ -153,7 +147,7 @@
             MaximumSize = new Size(600, 400);
             MinimumSize = new Size(600, 400);
             Name = "FormAddBook_AAN";
-            Text = "Новая книга";
+            Text = "Добавить книгу";
             panelAddBook_AAN.ResumeLayout(false);
             panelAddBook_AAN.PerformLayout();
             ResumeLayout(false);
@@ -170,5 +164,6 @@
         private TextBox textBoxPrice_AAN;
         private TextBox textBoxAnnotation_AAN;
         private Panel panelAddBook_AAN;
+        private Label labelNewBook_AAN;
     }
 }

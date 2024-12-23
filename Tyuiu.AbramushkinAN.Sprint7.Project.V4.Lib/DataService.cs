@@ -7,10 +7,8 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib
 {
     public class DataService
     {
-        public List<Library> GetLibraries()
+        public List<Library> GetLibraries(string JsonPath)
         {
-            string JsonPath = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Library.json";
-
             string json = File.ReadAllText(JsonPath);
             
             var books = JsonConvert.DeserializeObject<List<Library>>(json);
@@ -18,10 +16,8 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib
             return books;
         }
 
-        public List<Library> SortLibrary(int index)
+        public List<Library> SortLibrary(string JsonPath, int index)
         {
-            string JsonPath = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Library.json";
-
             string json = File.ReadAllText(JsonPath);
 
             var books = JsonConvert.DeserializeObject<List<Library>>(json);
@@ -46,9 +42,8 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib
             return books.ToList();
 
         }
-        public List<Library> SearchBook(string text)
+        public List<Library> SearchBook(string JsonPath,string text)
         {
-            string JsonPath = $"C:\\Users\\User\\source\\repos\\Tyuiu.AbramushkinAN.Sprint7\\Library.json";
 
             string json = File.ReadAllText(JsonPath);
 

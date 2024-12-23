@@ -29,23 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUserManual));
-            textBoxUserManual_AAN = new TextBox();
             buttonClose_AAN = new Button();
+            labelUserManual_AAN = new Label();
             SuspendLayout();
-            // 
-            // textBoxUserManual_AAN
-            // 
-            textBoxUserManual_AAN.BackColor = SystemColors.Control;
-            textBoxUserManual_AAN.BorderStyle = BorderStyle.None;
-            textBoxUserManual_AAN.Font = new Font("Segoe UI", 14F);
-            textBoxUserManual_AAN.Location = new Point(12, 25);
-            textBoxUserManual_AAN.Multiline = true;
-            textBoxUserManual_AAN.Name = "textBoxUserManual_AAN";
-            textBoxUserManual_AAN.ReadOnly = true;
-            textBoxUserManual_AAN.Size = new Size(760, 284);
-            textBoxUserManual_AAN.TabIndex = 0;
-            textBoxUserManual_AAN.Text = resources.GetString("textBoxUserManual_AAN.Text");
-            textBoxUserManual_AAN.TextAlign = HorizontalAlignment.Center;
             // 
             // buttonClose_AAN
             // 
@@ -59,24 +45,31 @@
             buttonClose_AAN.UseVisualStyleBackColor = false;
             buttonClose_AAN.Click += buttonClose_AAN_Click;
             // 
+            // labelUserManual_AAN
+            // 
+            labelUserManual_AAN.Font = new Font("Segoe UI", 13F);
+            labelUserManual_AAN.Location = new Point(12, 25);
+            labelUserManual_AAN.Name = "labelUserManual_AAN";
+            labelUserManual_AAN.Size = new Size(760, 286);
+            labelUserManual_AAN.TabIndex = 2;
+            labelUserManual_AAN.Text = resources.GetString("labelUserManual_AAN.Text");
+            // 
             // FormUserManual
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 361);
+            Controls.Add(labelUserManual_AAN);
             Controls.Add(buttonClose_AAN);
-            Controls.Add(textBoxUserManual_AAN);
             MaximumSize = new Size(800, 400);
             MinimumSize = new Size(800, 400);
             Name = "FormUserManual";
             Text = "Руководство пользователя";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private TextBox textBoxUserManual_AAN;
         private Button buttonClose_AAN;
+        private Label labelUserManual_AAN;
     }
 }

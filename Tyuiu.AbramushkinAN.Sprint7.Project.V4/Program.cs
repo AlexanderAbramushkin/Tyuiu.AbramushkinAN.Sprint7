@@ -13,5 +13,9 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             ApplicationConfiguration.Initialize();
             Application.Run(new FormMain_AAN());
         }
+        static class Data
+        {
+            public static string Value { get; set; }
+        }
     }
 }

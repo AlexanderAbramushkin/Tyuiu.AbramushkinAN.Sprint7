@@ -17,7 +17,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonClose_AAN_Click(object sender, EventArgs e)
         {
             this.Close();
         }

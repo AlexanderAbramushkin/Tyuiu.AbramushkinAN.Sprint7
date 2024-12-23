@@ -90,4 +90,14 @@
     },
 
 	
+
+	{"author":"Проверка","title":"Проверка","year":321312,"price":321321.0,"is_new_edition":true,"annotation":"321312"},
+
+	{"author":"321312","title":"31231","year":332113,"price":32123.0,"is_new_edition":true,"annotation":"321312"},
+
+	{"author":"1312312312","title":"32","year":31231,"price":321321.0,"is_new_edition":true,"annotation":"323"},
+
+	{"author":"dadada","title":"dada","year":321,"price":321.0,"is_new_edition":true,"annotation":"вфвфвфвф"},
+
+	{"author":"Тест","title":"Тест","year":2014,"price":2022.0,"is_new_edition":true,"annotation":"Четатам"},
 ]
