@@ -1,4 +1,5 @@
 using System.Diagnostics.Metrics;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
@@ -157,41 +158,45 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
         }
         private void buttonSaveFile_AAN_Click(object sender, EventArgs e)
         {
-            saveFileDialogSaveLib_AAN.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
-            saveFileDialogSaveLib_AAN.ShowDialog();
-            string filename = saveFileDialogSaveLib_AAN.FileName;
-            FileInfo fileInfo = new FileInfo(filename);
-            bool fileExists = fileInfo.Exists;
-
-            if (fileExists)
+            try 
             {
-                File.Delete(filename);
-            }
-            int rows = dataGridViewOutData_AAN.RowCount;
-            int columns = dataGridViewOutData_AAN.ColumnCount;
+                saveFileDialogSaveLib_AAN.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+                saveFileDialogSaveLib_AAN.ShowDialog();
+                string filename = saveFileDialogSaveLib_AAN.FileName;
+                FileInfo fileInfo = new FileInfo(filename);
+                bool fileExists = fileInfo.Exists;
 
-            string str = "";
-            for (int r = 0; r < rows; r++)
-            {
-                for (int c = 0; c < columns; c++)
+                if (fileExists)
                 {
-                    if (c != columns - 1)
-                    {
-                        str += dataGridViewOutData_AAN.Rows[r].Cells[c].Value + ";";
-                    }
-                    else
-                    {
-                        str += dataGridViewOutData_AAN.Rows[r].Cells[c].Value;
-                    }
+                    File.Delete(filename);
                 }
-                File.AppendAllText(filename, str + Environment.NewLine,Encoding.Unicode);
-                str = "";
+                int rows = dataGridViewOutData_AAN.RowCount;
+                int columns = dataGridViewOutData_AAN.ColumnCount;
+
+                string str = "";
+                for (int r = 0; r < rows; r++)
+                {
+                    for (int c = 0; c < columns; c++)
+                    {
+                        if (c != columns - 1)
+                        {
+                            str += dataGridViewOutData_AAN.Rows[r].Cells[c].Value + ";";
+                        }
+                        else
+                        {
+                            str += dataGridViewOutData_AAN.Rows[r].Cells[c].Value;
+                        }
+                    }
+                    File.AppendAllText(filename, str + Environment.NewLine);
+                    str = "";
+                }
+                string path = Path.GetDirectoryName(filename) + $"/{filename}";
+                MessageBox.Show($"Файл успешно сохранён.\nПуть файла: {path}", "Сохранение файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            string path = Path.GetDirectoryName(filename) + $"/{filename}";
-            MessageBox.Show($"Файл успешно сохранён.\n Путь файла: {path}", "Сохранение файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-           
+            catch
+            {
+                MessageBox.Show($"Ошибка сохранения файла, попробуйте ещё раз", "Сохранение файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
