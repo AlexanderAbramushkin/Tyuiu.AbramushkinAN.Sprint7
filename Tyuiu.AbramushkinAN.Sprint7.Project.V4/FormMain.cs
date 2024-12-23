@@ -226,5 +226,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             FormUserManual formUserManual = new FormUserManual();
             formUserManual.ShowDialog();
         }
+
+
     }
 }
