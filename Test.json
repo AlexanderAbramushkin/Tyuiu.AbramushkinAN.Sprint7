@@ -89,4 +89,8 @@
         
     },
 
+
+	{"author":"Проверка1","title":"Проверка","year":2203232,"price":321321.0,"is_new_edition":true,"annotation":"ПроверкаПроверки"},
+
+	{"author":"Чек","title":"Чек","year":32121,"price":222.0,"is_new_edition":false,"annotation":"31ееиеие"},
 ]

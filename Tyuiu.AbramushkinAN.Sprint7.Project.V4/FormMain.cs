@@ -7,6 +7,7 @@ using System.Text.Json.Nodes;
 using System.Windows.Forms;
 using Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib;
 using static System.Windows.Forms.DataFormats;
+using static Tyuiu.AbramushkinAN.Sprint7.Project.V4.FormAddBook_AAN;
 
 namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
 {
@@ -60,13 +61,19 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
         {
             try
             {
-
+                
                 List<Library> books = ds.SearchBook(JsonPath, textBoxSearch_AAN.Text);
+                foreach (var book in books)
+                {
+                    if (textBoxSearch_AAN.Text != book.Title)
+                    {
+                        throw new Exception();
+                    }
+                }
                 dataGridViewOutData_AAN.AutoGenerateColumns = true;
                 dataGridViewOutData_AAN.DataSource = books;
                 chartYearOfPublication_AAN.Series.Clear();
                 chartPriceOfBook_AAN.Series.Clear();
-
                 foreach (var book in books)
                 {
                     var seriesYear = chartYearOfPublication_AAN.Series.Add(book.Title);
@@ -82,7 +89,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             }
             catch
             {
-                MessageBox.Show("Обновите список книг", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Такой книги нет в списке, вы можете её добавить", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
