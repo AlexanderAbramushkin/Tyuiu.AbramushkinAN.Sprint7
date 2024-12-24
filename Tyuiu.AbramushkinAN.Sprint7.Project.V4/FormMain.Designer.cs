@@ -122,6 +122,7 @@
             textBoxDeleteBook_AAN.Size = new Size(235, 23);
             textBoxDeleteBook_AAN.TabIndex = 10;
             textBoxDeleteBook_AAN.TextAlign = HorizontalAlignment.Center;
+            textBoxDeleteBook_AAN.KeyDown += textBoxDeleteBook_AAN_KeyDown;
             // 
             // buttonDeleteBook_AAN
             // 

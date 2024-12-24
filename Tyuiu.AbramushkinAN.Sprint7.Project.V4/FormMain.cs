@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
+using System.Drawing.Drawing2D;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.JavaScript;
@@ -133,13 +134,14 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                     File.Delete(filename);
                 }
                 int rows = dataGridViewOutData_AAN.RowCount;
-                int columns = dataGridViewOutData_AAN.ColumnCount;
-
+                int columns = dataGridViewOutData_AAN.ColumnCount;    
                 string str = "";
                 for (int r = 0; r < rows; r++)
                 {
                     for (int c = 0; c < columns; c++)
                     {
+
+
                         if (c != columns - 1)
                         {
                             str += dataGridViewOutData_AAN.Rows[r].Cells[c].Value + ";";
@@ -149,11 +151,12 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                             str += dataGridViewOutData_AAN.Rows[r].Cells[c].Value;
                         }
                     }
-                    File.AppendAllText(filename, str + Environment.NewLine);
+
+                    File.AppendAllText(filename, str + Environment.NewLine, Encoding.Unicode);
                     str = "";
                 }
                 string path = Path.GetDirectoryName(filename) + $"/{filename}";
-                MessageBox.Show($"Файл успешно сохранён.\nПуть файла: {path}", "Сохранение файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Файл успешно сохранён.\nПуть файла: {path}", "Сохранение файла", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
@@ -244,6 +247,13 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             if (e.KeyCode == Keys.Enter)
             {
                 buttonSearch_Click(sender, e);
+            }
+        }
+        private void textBoxDeleteBook_AAN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonDeleteChooseBook_AAN_Click(sender, e);
             }
         }
         private void buttonAboutProgram_AAN_Click(object sender, EventArgs e)
