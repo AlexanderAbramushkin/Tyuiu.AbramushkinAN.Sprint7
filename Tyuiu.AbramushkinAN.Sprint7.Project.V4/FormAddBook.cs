@@ -36,7 +36,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             public string author { get; set; }
             public string title { get; set; }
             public int year { get; set; }
-            public double price { get; set; }
+            public int price { get; set; }
             public bool is_new_edition { get; set; }
             public string annotation { get; set; }
         }
@@ -48,7 +48,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                 string Title = textBoxTitle_AAN.Text;
                 string Author = textBoxAuthor_AAN.Text;
                 int YearOfPubl = Convert.ToInt32(textBoxYearOfPubl_AAN.Text);
-                double Price = Convert.ToDouble(textBoxPrice_AAN.Text);
+                int Price = Convert.ToInt32(textBoxPrice_AAN.Text);
                 bool IsNewEdition = false;
                 if (textBoxIsNewEdition_AAN.Text == "Да" || textBoxIsNewEdition_AAN.Text == "да")
                 {
@@ -65,12 +65,12 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                 string Annotation = textBoxAnnotation_AAN.Text;
                 var book = new Book
                 {
-                    title = Title,
-                    author = Author,
+                    title = Title.Trim(),
+                    author = Author.Trim(),
                     year = YearOfPubl,
                     price = Price,
                     is_new_edition = IsNewEdition,
-                    annotation = Annotation
+                    annotation = Annotation.Trim()
                 };
             string JsonPath = data;
                 string JsonStr = JsonConvert.SerializeObject(book);
@@ -81,6 +81,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                     if(JSON[i] == "]")
                     {
                         JSON[i] = "";
+                        JSON = JSON.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
                     }    
                 }
                 File.Delete(JsonPath);
@@ -89,7 +90,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
                 {
                     sw.WriteLine(JSON[i]);
                 }
-                sw.Write($"\t{JsonStr},\n]");
+                sw.Write($"    {JsonStr},\n]");
                 sw.Close();
                 MessageBox.Show("Книга добавлена успешно", "Добавление новой книги", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

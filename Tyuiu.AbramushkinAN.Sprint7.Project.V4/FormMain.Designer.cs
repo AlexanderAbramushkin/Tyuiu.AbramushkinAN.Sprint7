@@ -37,6 +37,9 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panelInstruments_AAN = new Panel();
+            buttonDeleteChooseBook_AAN = new Button();
+            textBoxDeleteBook_AAN = new TextBox();
+            buttonDeleteBook_AAN = new Button();
             buttonOpenFile_AAN = new Button();
             pictureBoxUpdate_AAN = new PictureBox();
             buttonAdd_AAN = new Button();
@@ -60,6 +63,7 @@
             saveFileDialogSaveLib_AAN = new SaveFileDialog();
             toolTipOpenFile_AAN = new ToolTip(components);
             openFileDialogJSON_AAN = new OpenFileDialog();
+            toolTipDeleteBook_AAN = new ToolTip(components);
             panelInstruments_AAN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUpdate_AAN).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chartPriceOfBook_AAN).BeginInit();
@@ -75,6 +79,9 @@
             // 
             // panelInstruments_AAN
             // 
+            panelInstruments_AAN.Controls.Add(buttonDeleteChooseBook_AAN);
+            panelInstruments_AAN.Controls.Add(textBoxDeleteBook_AAN);
+            panelInstruments_AAN.Controls.Add(buttonDeleteBook_AAN);
             panelInstruments_AAN.Controls.Add(buttonOpenFile_AAN);
             panelInstruments_AAN.Controls.Add(pictureBoxUpdate_AAN);
             panelInstruments_AAN.Controls.Add(buttonAdd_AAN);
@@ -89,6 +96,48 @@
             panelInstruments_AAN.Size = new Size(1264, 68);
             panelInstruments_AAN.TabIndex = 0;
             // 
+            // buttonDeleteChooseBook_AAN
+            // 
+            buttonDeleteChooseBook_AAN.Anchor = AnchorStyles.Right;
+            buttonDeleteChooseBook_AAN.BackColor = SystemColors.Window;
+            buttonDeleteChooseBook_AAN.FlatStyle = FlatStyle.Popup;
+            buttonDeleteChooseBook_AAN.Font = new Font("Nunito Sans Normal Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonDeleteChooseBook_AAN.ForeColor = SystemColors.ControlText;
+            buttonDeleteChooseBook_AAN.Location = new Point(799, 22);
+            buttonDeleteChooseBook_AAN.Name = "buttonDeleteChooseBook_AAN";
+            buttonDeleteChooseBook_AAN.Size = new Size(70, 23);
+            buttonDeleteChooseBook_AAN.TabIndex = 11;
+            buttonDeleteChooseBook_AAN.Text = "Удалить";
+            buttonDeleteChooseBook_AAN.TextAlign = ContentAlignment.TopCenter;
+            toolTipSearch_AAN.SetToolTip(buttonDeleteChooseBook_AAN, "Напишите название книги в окне и нажмите на кнопку, чтобы выполнить поиск\r\n");
+            buttonDeleteChooseBook_AAN.UseVisualStyleBackColor = false;
+            buttonDeleteChooseBook_AAN.Click += buttonDeleteChooseBook_AAN_Click;
+            // 
+            // textBoxDeleteBook_AAN
+            // 
+            textBoxDeleteBook_AAN.Anchor = AnchorStyles.Right;
+            textBoxDeleteBook_AAN.Location = new Point(558, 22);
+            textBoxDeleteBook_AAN.Name = "textBoxDeleteBook_AAN";
+            textBoxDeleteBook_AAN.PlaceholderText = "Введите название книги для удаления";
+            textBoxDeleteBook_AAN.Size = new Size(235, 23);
+            textBoxDeleteBook_AAN.TabIndex = 10;
+            textBoxDeleteBook_AAN.TextAlign = HorizontalAlignment.Center;
+            // 
+            // buttonDeleteBook_AAN
+            // 
+            buttonDeleteBook_AAN.Anchor = AnchorStyles.Right;
+            buttonDeleteBook_AAN.BackColor = SystemColors.Window;
+            buttonDeleteBook_AAN.BackgroundImageLayout = ImageLayout.None;
+            buttonDeleteBook_AAN.FlatStyle = FlatStyle.Popup;
+            buttonDeleteBook_AAN.Image = (Image)resources.GetObject("buttonDeleteBook_AAN.Image");
+            buttonDeleteBook_AAN.Location = new Point(875, 4);
+            buttonDeleteBook_AAN.Name = "buttonDeleteBook_AAN";
+            buttonDeleteBook_AAN.Size = new Size(60, 60);
+            buttonDeleteBook_AAN.TabIndex = 9;
+            toolTipDeleteBook_AAN.SetToolTip(buttonDeleteBook_AAN, "Нажмите, чтобы удалить книгу.");
+            buttonDeleteBook_AAN.UseVisualStyleBackColor = false;
+            buttonDeleteBook_AAN.Click += buttonDeleteBook_AAN_Click;
+            // 
             // buttonOpenFile_AAN
             // 
             buttonOpenFile_AAN.Anchor = AnchorStyles.Right;
@@ -96,11 +145,11 @@
             buttonOpenFile_AAN.BackgroundImageLayout = ImageLayout.None;
             buttonOpenFile_AAN.FlatStyle = FlatStyle.Popup;
             buttonOpenFile_AAN.Image = (Image)resources.GetObject("buttonOpenFile_AAN.Image");
-            buttonOpenFile_AAN.Location = new Point(940, 4);
+            buttonOpenFile_AAN.Location = new Point(1070, 4);
             buttonOpenFile_AAN.Name = "buttonOpenFile_AAN";
             buttonOpenFile_AAN.Size = new Size(60, 60);
             buttonOpenFile_AAN.TabIndex = 8;
-            toolTipOpenFile_AAN.SetToolTip(buttonOpenFile_AAN, "Нажмите на кнопку, чтобы открыть JSON-файл\r\n");
+            toolTipOpenFile_AAN.SetToolTip(buttonOpenFile_AAN, "Нажмите, чтобы открыть JSON-файл.\r\n");
             buttonOpenFile_AAN.UseVisualStyleBackColor = false;
             buttonOpenFile_AAN.Click += buttonOpenFile_AAN_Click;
             // 
@@ -122,11 +171,11 @@
             buttonAdd_AAN.BackgroundImageLayout = ImageLayout.None;
             buttonAdd_AAN.FlatStyle = FlatStyle.Popup;
             buttonAdd_AAN.Image = (Image)resources.GetObject("buttonAdd_AAN.Image");
-            buttonAdd_AAN.Location = new Point(1005, 4);
+            buttonAdd_AAN.Location = new Point(940, 4);
             buttonAdd_AAN.Name = "buttonAdd_AAN";
             buttonAdd_AAN.Size = new Size(60, 60);
             buttonAdd_AAN.TabIndex = 5;
-            toolTipAddBook_AAN.SetToolTip(buttonAdd_AAN, "Нажмите на кнопку, чтобы добавить книгу в список");
+            toolTipAddBook_AAN.SetToolTip(buttonAdd_AAN, "Нажмите, чтобы добавить книгу в список.");
             buttonAdd_AAN.UseVisualStyleBackColor = false;
             buttonAdd_AAN.Click += buttonAdd_AAN_Click;
             // 
@@ -163,11 +212,11 @@
             buttonSaveFile_AAN.BackColor = SystemColors.Window;
             buttonSaveFile_AAN.FlatStyle = FlatStyle.Popup;
             buttonSaveFile_AAN.Image = (Image)resources.GetObject("buttonSaveFile_AAN.Image");
-            buttonSaveFile_AAN.Location = new Point(1070, 4);
+            buttonSaveFile_AAN.Location = new Point(1005, 4);
             buttonSaveFile_AAN.Name = "buttonSaveFile_AAN";
             buttonSaveFile_AAN.Size = new Size(60, 60);
             buttonSaveFile_AAN.TabIndex = 3;
-            toolTipSaveFile_AAN.SetToolTip(buttonSaveFile_AAN, "Нажмите на кнопку, чтобы сохранить список в формате CSV");
+            toolTipSaveFile_AAN.SetToolTip(buttonSaveFile_AAN, "Нажмите, чтобы сохранить список в формате CSV.");
             buttonSaveFile_AAN.UseVisualStyleBackColor = false;
             buttonSaveFile_AAN.Click += buttonSaveFile_AAN_Click;
             // 
@@ -181,7 +230,7 @@
             buttonUserManual_AAN.Name = "buttonUserManual_AAN";
             buttonUserManual_AAN.Size = new Size(60, 60);
             buttonUserManual_AAN.TabIndex = 1;
-            toolTipUserManual_AAN.SetToolTip(buttonUserManual_AAN, "Нажмите на кнопку, чтобы ознакомиться с руководством пользователя");
+            toolTipUserManual_AAN.SetToolTip(buttonUserManual_AAN, "Нажмите, чтобы ознакомиться с руководством пользователя.");
             buttonUserManual_AAN.UseVisualStyleBackColor = false;
             buttonUserManual_AAN.Click += buttonUserManual_AAN_Click;
             // 
@@ -196,7 +245,7 @@
             buttonAboutProgram_AAN.Name = "buttonAboutProgram_AAN";
             buttonAboutProgram_AAN.Size = new Size(60, 60);
             buttonAboutProgram_AAN.TabIndex = 0;
-            toolTiзAboutProgram_AAN.SetToolTip(buttonAboutProgram_AAN, "Нажмите на кнопку, чтобы ознакомиться с информацией о программе");
+            toolTiзAboutProgram_AAN.SetToolTip(buttonAboutProgram_AAN, "Нажмите, чтобы ознакомиться с информацией о программе.");
             buttonAboutProgram_AAN.UseVisualStyleBackColor = false;
             buttonAboutProgram_AAN.Click += buttonAboutProgram_AAN_Click;
             // 
@@ -325,6 +374,11 @@
             // 
             openFileDialogJSON_AAN.FileName = "openFileDialog1";
             // 
+            // toolTipDeleteBook_AAN
+            // 
+            toolTipDeleteBook_AAN.ToolTipIcon = ToolTipIcon.Info;
+            toolTipDeleteBook_AAN.ToolTipTitle = "Удалить книгу";
+            // 
             // FormMain_AAN
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -377,5 +431,9 @@
         private Button buttonOpenFile_AAN;
         private ToolTip toolTipOpenFile_AAN;
         private OpenFileDialog openFileDialogJSON_AAN;
+        private Button buttonDeleteBook_AAN;
+        private TextBox textBoxDeleteBook_AAN;
+        private Button buttonDeleteChooseBook_AAN;
+        private ToolTip toolTipDeleteBook_AAN;
     }
 }

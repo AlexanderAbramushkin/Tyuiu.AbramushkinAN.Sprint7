@@ -1,11 +1,19 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using System.Text.Json.Nodes;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml;
 using Tyuiu.AbramushkinAN.Sprint7.Project.V4.Lib;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.DataFormats;
 using static Tyuiu.AbramushkinAN.Sprint7.Project.V4.FormAddBook_AAN;
 
@@ -14,6 +22,15 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
     public partial class FormMain_AAN : Form
     {
         DataService ds = new DataService();
+        public class Book
+        {
+            public string author { get; set; }
+            public string title { get; set; }
+            public int year { get; set; }
+            public double price { get; set; }
+            public bool is_new_edition { get; set; }
+            public string annotation { get; set; }
+        }
         public FormMain_AAN()
         {
             InitializeComponent();
@@ -26,8 +43,14 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             buttonAdd_AAN.Enabled = false;
             buttonSaveFile_AAN.Enabled = false;
             buttonSearch_AAN.Enabled = false;
+            buttonDeleteBook_AAN.Enabled = false;
             pictureBoxUpdate_AAN.Enabled = false;
             textBoxSearch_AAN.Enabled = false;
+            textBoxDeleteBook_AAN.Enabled = false;
+            textBoxDeleteBook_AAN.Visible = false;
+            buttonDeleteChooseBook_AAN.Enabled = false;
+            buttonDeleteChooseBook_AAN.Visible = false;
+
         }
 
         private void buttonUpdate_AAN_Click(object sender, EventArgs e)
@@ -56,12 +79,12 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             chartPriceOfBook_AAN.ChartAreas[0].AxisY.Title = "Цена";
 
         }
-        
+
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             try
             {
-                
+
                 List<Library> books = ds.SearchBook(JsonPath, textBoxSearch_AAN.Text);
                 foreach (var book in books)
                 {
@@ -94,7 +117,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
 
         }
 
-        
+
         private void buttonSaveFile_AAN_Click(object sender, EventArgs e)
         {
             try
@@ -185,6 +208,7 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             buttonSearch_AAN.Enabled = true;
             pictureBoxUpdate_AAN.Enabled = true;
             textBoxSearch_AAN.Enabled = true;
+            buttonDeleteBook_AAN.Enabled = true;
         }
         private void dataGridViewOutData_AAN_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -217,8 +241,8 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
         }
         private void textBoxSearch_AAN_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
-            { 
+            if (e.KeyCode == Keys.Enter)
+            {
                 buttonSearch_Click(sender, e);
             }
         }
@@ -234,6 +258,85 @@ namespace Tyuiu.AbramushkinAN.Sprint7.Project.V4
             formUserManual.ShowDialog();
         }
 
+        private void buttonDeleteBook_AAN_Click(object sender, EventArgs e)
+        {
+            textBoxDeleteBook_AAN.Enabled = true;
+            textBoxDeleteBook_AAN.Visible = true;
+            buttonDeleteChooseBook_AAN.Enabled = true;
+            buttonDeleteChooseBook_AAN.Visible = true;
+        }
 
+        private void buttonDeleteChooseBook_AAN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string json = File.ReadAllText(JsonPath);
+                string text = textBoxDeleteBook_AAN.Text;
+                var books = JsonConvert.DeserializeObject<List<Library>>(json);
+                var tempbook = books;
+                string searchvalue = text.Trim();
+                string deletetitle = "";
+                foreach (var book in books)
+                {
+                    if (book.Title == text)
+                    {
+                        tempbook = books.FindAll(book => book.Title.IndexOf(searchvalue, StringComparison.OrdinalIgnoreCase) >= 0);
+                    }
+                }
+                if (tempbook.Count != 1)
+                {
+                    throw new Exception();
+                }
+                string deletebook = "";
+                string bookisnew = "";
+                foreach (var book in tempbook)
+                {
+                    if(book.Is_New_Edition == false)
+                    {
+                        bookisnew = "false";
+                    }
+                    else if (book.Is_New_Edition == true)
+                    {
+                        bookisnew = "true";
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                    string v = $"    {{\"author\":\"{book.Author}\",\"title\":\"{book.Title}\",\"year\":{book.Year},\"price\":{book.Price},\"is_new_edition\":{bookisnew},\"annotation\":\"{book.Annotation}\"}},";
+                    string g =  "    {\"author\": \"Федор Достоевский\",\"title\": \"Преступление и наказание\",\"year\": 1866,\"price\": 450,\"is_new_edition\": false,\"annotation\": \"Роман о моральных дилеммах и внутренней борьбе человека.\"},";
+
+                    deletebook = v;
+
+                }
+                string[] JSON = File.ReadAllLines(JsonPath);
+                for (int i =0; i < JSON.Length; i++)
+                {
+                    if (Regex.IsMatch(JSON[i], deletebook))
+                    {
+                        JSON[i] = "";
+                        JSON = JSON.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+                    }
+                }
+                File.Delete(JsonPath);
+                StreamWriter sw = new StreamWriter(JsonPath, true, Encoding.Default);
+                for (int i = 0; i < JSON.Length; i++)
+                {
+                    sw.WriteLine(JSON[i]);
+                }
+                sw.Close();
+                MessageBox.Show("Книга успешно удалена", "Удаление книги", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                buttonUpdate_AAN_Click(sender, e);
+            }
+            catch
+            {
+                MessageBox.Show("Такой книги нет в списке или книг с таким названием несколько", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            textBoxDeleteBook_AAN.Enabled = false;
+            textBoxDeleteBook_AAN.Visible = false;
+            textBoxDeleteBook_AAN.Clear();
+            buttonDeleteChooseBook_AAN.Enabled = false;
+            buttonDeleteChooseBook_AAN.Visible = false;
+        }
     }
 }
